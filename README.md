@@ -1,193 +1,169 @@
-# My Portfolio - Creative Developer
+# 🚀 My Portfolio Website
 
-Một portfolio website hiện đại với thiết kế tông màu đen-tím và nhiều hiệu ứng animation linh hoạt.
+[![Built with Love](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
+[![Made with JavaScript](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
+[![Open Source](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
+[![GitHub Stars](https://img.shields.io/github/stars/donhotung/MyPortfolio?color=red&logo=github&style=for-the-badge)](https://github.com/donhotung/MyPortfolio)
+[![GitHub Forks](https://img.shields.io/github/forks/donhotung/MyPortfolio?color=red&logo=github&style=for-the-badge)](https://github.com/donhotung/MyPortfolio)
 
-## ✨ Tính năng chính
+<div align="center">
+  <img alt="Portfolio Demo" src="./img/me2.jpg" width="300" />
+  <br/>
+  <strong>Live Demo: <a href="https://donhotung-portfolio.vercel.app/" target="_blank">donhotung.tech</a></strong>
+</div>
 
-### 🎨 Thiết kế
-- **Tông màu chủ đạo**: Đen (#0a0a0a, #1a1a1a) và Tím (#4b0082, #800080, #a100a1)
-- **Giao diện hiện đại**: Thiết kế responsive cho mọi thiết bị
-- **Typography**: Sử dụng font Inter cho giao diện chuyên nghiệp
+## 📋 Table of Contents
 
-### 🚀 Animation & Hiệu ứng
-- **Loading Screen**: Màn hình loading với logo quay và hiệu ứng fade
-- **Typing Effect**: Hiệu ứng gõ chữ ở Hero Section
-- **Particle Effects**: Hiệu ứng hạt tím nhẹ nhàng trên nền
-- **Scroll Animations**: Fade-in, slide-in với AOS và GSAP
-- **Hover Effects**: Nút bấm, card dự án với hiệu ứng nâng và đổ bóng
-- **Parallax**: Hiệu ứng nền di chuyển chậm khi cuộn
-- **Ripple Effect**: Hiệu ứng gợn sóng khi click nút
+- [About](#about)
+- [Features](#features)
+- [Technologies Used](#technologies-used)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Customization](#customization)
+- [Performance](#performance)
+- [Contributing](#contributing)
+- [Support](#support)
+- [License](#license)
 
-### 📱 Responsive Design
-- **Mobile First**: Tối ưu cho điện thoại di động
-- **Tablet & Desktop**: Giao diện thích ứng cho mọi kích thước màn hình
-- **Navigation**: Menu hamburger cho mobile với animation mượt mà
+## 🎯 About
 
-## 🛠️ Công nghệ sử dụng
+A modern, responsive portfolio website showcasing my projects, skills, and experience. Built with vanilla JavaScript and modern CSS animations for optimal performance and user experience.
 
-- **HTML5**: Cấu trúc semantic và accessible
-- **CSS3**: CSS Variables, Grid, Flexbox, Animations
-- **JavaScript ES6+**: Vanilla JS với modern syntax
-- **GSAP**: Animation library cho hiệu ứng mượt mà
-- **AOS**: Animate On Scroll library
-- **Font Awesome**: Icons đẹp và đa dạng
+**Live Demo:** [donhotung.tech](https://donhotung-portfolio.vercel.app/)
 
-## 📁 Cấu trúc dự án
+## ✨ Features
 
-```
-My_Portfolio/
-├── index.html          # Trang chính
-├── styles.css          # Stylesheet với tất cả CSS
-├── script.js           # JavaScript với animations và tương tác
-└── README.md           # Hướng dẫn này
-```
+### 🎨 **Design & Layout**
+- **Single-Page Application** with smooth scrolling navigation
+- **Fully Responsive Design** - Mobile, Tablet, and Desktop optimized
+- **Modern CSS3** with custom animations and effects
+- **Easy Color Customization** through CSS variables
 
-## 🚀 Cách sử dụng
+### 🚀 **Advanced Animations**
+- **Loading Screen** with logo animation
+- **Typing Effect** for hero section
+- **Particle Effects** and parallax scrolling
+- **Smooth Scroll Animations** using AOS library
+- **Interactive Hover Effects** with ripple animations
+- **Floating Elements** and glow effects
 
-### 1. Mở trực tiếp
-- Mở file `index.html` trong trình duyệt web
-- Tất cả CDN links sẽ tự động load
+### 📱 **Responsive Breakpoints**
+- **Mobile**: < 768px
+- **Tablet**: 768px - 1024px
+- **Desktop**: > 1024px
 
-### 2. Local Server (Khuyến nghị)
+## 🛠️ Technologies Used
+
+- **Frontend**: HTML5, CSS3, JavaScript ES6+
+- **Animation Libraries**: GSAP (GreenSock), AOS (Animate On Scroll)
+- **Icons**: Font Awesome
+- **Development**: VS Code
+- **Deployment**: Vercel
+
+## 🚀 Installation
+
+### Option 1: Direct Viewing
+Simply open `index.html` in your web browser.
+
+### Option 2: Local Development Server (Recommended)
+
+#### Using Python
 ```bash
-# Sử dụng Python
 python -m http.server 8000
-
-# Sử dụng Node.js
-npx serve .
-
-# Sử dụng Live Server (VS Code extension)
-# Click chuột phải vào index.html -> "Open with Live Server"
 ```
 
-### 3. Tùy chỉnh nội dung
-- **Thông tin cá nhân**: Chỉnh sửa trong `index.html`
-- **Màu sắc**: Thay đổi CSS variables trong `:root`
-- **Animation**: Điều chỉnh timing và effects trong `script.js`
+#### Using Node.js
+```bash
+npx serve .
+```
 
-## 🎯 Các Section chính
+#### Using VS Code Live Server
+1. Install the "Live Server" extension
+2. Right-click on `index.html`
+3. Select "Open with Live Server"
 
-### 1. **Hero Section**
-- Tên và nghề nghiệp với typing effect
-- Mô tả ngắn gọn
-- Nút CTA với hiệu ứng pulse
-- Avatar với animation float
-- Background với particles và gradient
+### Option 3: Deploy to Vercel
+1. Connect your GitHub repository to Vercel
+2. Vercel will automatically deploy your portfolio
 
-### 2. **About Section**
-- Giới thiệu bản thân
-- Ảnh đại diện với hover effect
-- Skills grid với icons và hover animations
+## 📖 Usage
 
-### 3. **Projects Section**
-- Grid các dự án
-- Mỗi card có hover effect và overlay
-- Links đến demo và source code
-- Tech stack tags
+The project consists of three main files:
 
-### 4. **Contact Section**
-- Form liên hệ với validation
-- Thông tin liên hệ với icons
-- Notification system cho form submission
+- **`index.html`** - Main HTML structure and content
+- **`styles.css`** - All styling, animations, and responsive design
+- **`script.js`** - JavaScript functionality and GSAP animations
 
-### 5. **Footer**
-- Thông tin tổng hợp
-- Social media links với hover effects
-- Gradient background
+## 🎨 Customization
 
-## 🎨 Tùy chỉnh màu sắc
-
-Thay đổi CSS variables trong `styles.css`:
+### Colors
+Modify CSS variables in the `:root` section of `styles.css`:
 
 ```css
 :root {
-    --primary-black: #0a0a0a;        /* Đen chính */
-    --secondary-black: #1a1a1a;      /* Đen phụ */
-    --accent-purple: #4b0082;        /* Tím đậm */
-    --accent-purple-light: #800080;  /* Tím nhạt */
-    --accent-purple-bright: #a100a1; /* Tím sáng */
-    /* ... */
+  --primary-color: #your-color;
+  --secondary-color: #your-color;
+  /* ... other variables */
 }
 ```
 
-## 📱 Responsive Breakpoints
+### Content
+Update personal information in `index.html`:
+- Personal details
+- Project descriptions
+- Skills and experience
+- Contact information
 
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px  
-- **Desktop**: > 1024px
+### Animations
+Adjust timing and effects in `script.js`:
+- GSAP animation durations
+- AOS trigger points
+- Custom animation sequences
 
-## ⚡ Performance
+## ⚡ Performance Features
 
-- **Lazy Loading**: AOS chỉ animate khi elements vào viewport
-- **Throttling**: Scroll events được tối ưu cho 60fps
-- **CSS Animations**: Sử dụng transform và opacity cho hiệu suất tốt
-- **Minimal Reflows**: Tránh layout thrashing
+- **Lazy Loading**: AOS animations only trigger when elements enter viewport
+- **Optimized Animations**: CSS transforms and opacity for smooth 60fps
+- **Throttled Events**: Scroll events optimized for performance
+- **Minimal Reflows**: Efficient layout management
 
-## 🔧 Tùy chỉnh nâng cao
+## 🤝 Contributing
 
-### Thêm dự án mới
-```html
-<div class="project-card" data-aos="fade-up" data-aos-delay="400">
-    <div class="project-image">
-        <div class="image-placeholder">
-            <i class="fas fa-rocket"></i>
-        </div>
-        <div class="project-overlay">
-            <!-- Project links -->
-        </div>
-    </div>
-    <div class="project-content">
-        <h3>Tên dự án</h3>
-        <p>Mô tả dự án</p>
-        <div class="project-tech">
-            <span class="tech-tag">React</span>
-        </div>
-    </div>
-</div>
-```
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-### Thêm skill mới
-```html
-<div class="skill-item" data-aos="zoom-in" data-aos-delay="500">
-    <div class="skill-icon">
-        <i class="fab fa-vuejs"></i>
-    </div>
-    <span>Vue.js</span>
-</div>
-```
+## 🐛 Issues & Feature Requests
 
-## 🌟 Tính năng nâng cao
+- **Report a Bug**: [Create an Issue](https://github.com/donhotung/MyPortfolio/issues)
+- **Request a Feature**: [Create an Issue](https://github.com/donhotung/MyPortfolio/issues)
 
-### Cursor Trail Effect
-Bỏ comment dòng cuối trong `script.js`:
-```javascript
-initCursorTrail(); // Bỏ comment để bật hiệu ứng
-```
+## ☕ Support
 
-### Custom Animations
-Thêm GSAP animations mới trong `initScrollAnimations()`:
-```javascript
-gsap.from('.your-element', {
-    y: 100,
-    opacity: 0,
-    duration: 1,
-    scrollTrigger: {
-        trigger: '.your-element',
-        start: 'top 80%'
-    }
-});
-```
+If you find this project helpful, please consider:
 
-## 📞 Hỗ trợ
+- ⭐ **Starring** the repository
+- 🍵 **Buying me a coffee** to support development
 
-Nếu bạn cần hỗ trợ hoặc có câu hỏi:
-- Tạo issue trên repository
-- Liên hệ qua email: your.email@example.com
+<a href="https://www.buymeacoffee.com/donhotung" target="_blank">
+  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height="60px" width="217px">
+</a>
 
 ## 📄 License
 
-Dự án này được phát hành dưới MIT License. Bạn có thể tự do sử dụng, chỉnh sửa và phân phối.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+You are free to:
+- ✅ Use, modify, and distribute
+- ✅ Use for commercial purposes
+- ✅ Modify and create derivative works
+
+**Please give proper credit by linking back to [DonHoTung](https://github.com/donhotung/MyPortfolio).**
 
 ---
 
-**Lưu ý**: Đây là template portfolio, hãy thay thế nội dung mẫu bằng thông tin thực của bạn để tạo portfolio cá nhân hoàn chỉnh!
+<div align="center">
+  <strong>Made with ❤️ by <a href="https://github.com/donhotung">DonHoTung</a></strong>
+</div>
