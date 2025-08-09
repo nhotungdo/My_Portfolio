@@ -27,7 +27,7 @@
 
 ## 🎯 About
 
-A modern, responsive portfolio website showcasing my projects, skills, and experience. Built with vanilla JavaScript and modern CSS animations for optimal performance and user experience.
+A modern, responsive portfolio website showcasing my projects, skills, and experience. **Built primarily with vanilla JavaScript (ES6+)** and modern CSS animations for optimal performance and user experience.
 
 **Live Demo:** [donhotung.tech](https://donhotung-portfolio.vercel.app/)
 
@@ -54,7 +54,8 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 
 ## 🛠️ Technologies Used
 
-- **Frontend**: HTML5, CSS3, JavaScript ES6+
+- **Primary Language**: **JavaScript ES6+** (Vanilla JS)
+- **Frontend**: HTML5, CSS3
 - **Animation Libraries**: GSAP (GreenSock), AOS (Animate On Scroll)
 - **Icons**: Font Awesome
 - **Development**: VS Code
