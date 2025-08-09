@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-logo">
+            <div class="logo-circle"></div>
+            <h2>Portfolio</h2>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span class="logo-text">Portfolio</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Trang chủ</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">Giới thiệu</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#projects" class="nav-link">Dự án</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Liên hệ</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="particles"></div>
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text" data-aos="fade-up">
+                <h1 class="hero-title">
+                    <span class="typing-text">Xin chào, tôi là</span>
+                    <span class="hero-name">Đỗ Nho Tùng</span>
+                </h1>
+                <p class="hero-subtitle">Software Engineer & DevOps Engineer</p>
+                <p class="hero-description">
+                    Tôi tạo ra những trải nghiệm số tuyệt vời với sự sáng tạo và công nghệ hiện đại
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary pulse-btn floating-btn">
+                        <span>Xem dự án</span>
+                        <div class="btn-ripple"></div>
+                        <div class="btn-glow"></div>
+                    </button>
+                    <button class="btn btn-secondary floating-btn">
+                        <span>Liên hệ</span>
+                        <div class="btn-ripple"></div>
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-left">
+                <div class="hero-avatar">
+                    <div class="avatar-circle">
+                        <img src="img/me2.jpg" alt="Đỗ Nho Tùng" class="avatar-photo">
+                        <div class="avatar-ring"></div>
+                        <div class="avatar-particles"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Về tôi</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="about-content">
+                <div class="about-image" data-aos="fade-right">
+                    <div class="image-container">
+                        <img src="img/me2.jpg" alt="Đỗ Nho Tùng - Software Engineer" class="about-photo">
+                        <div class="image-overlay"></div>
+                    </div>
+                </div>
+                <div class="about-text" data-aos="fade-left">
+                    <h3>Software Engineer với đam mê công nghệ</h3>
+                    <p>
+                        Tôi là một Software Engineer với hơn 1 năm kinh nghiệm trong việc phát triển
+                        phần mềm, web application và DevOps. Tôi yêu thích việc xây dựng những hệ thống
+                        hiệu quả và những giải pháp công nghệ tối ưu.
+                    </p>
+                    <div class="skills">
+                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
+                            <div class="skill-icon">
+                                <i class="fab fa-html5"></i>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <span>HTML5</span>
+                        </div>
+                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">
+                            <div class="skill-icon">
+                                <i class="fab fa-css3-alt"></i>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <span>CSS3</span>
+                        </div>
+                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">
+                            <div class="skill-icon">
+                                <i class="fab fa-js"></i>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <span>JavaScript</span>
+                        </div>
+                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
+                            <div class="skill-icon">
+                                <i class="fab fa-react"></i>
+                                <div class="skill-glow"></div>
+                            </div>
+                            <span>React</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Dự án của tôi</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="project-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link floating-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <div class="link-ripple"></div>
+                                </a>
+                                <a href="#" class="project-link floating-link">
+                                    <i class="fab fa-github"></i>
+                                    <div class="link-ripple"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Website</h3>
+                        <p>Website thương mại điện tử hiện đại với giao diện responsive và thanh toán online</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">CI/CD</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link floating-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <div class="link-ripple"></div>
+                                </a>
+                                <a href="#" class="project-link floating-link">
+                                    <i class="fab fa-github"></i>
+                                    <div class="link-ripple"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Mobile App</h3>
+                        <p>Ứng dụng di động quản lý công việc với giao diện người dùng thân thiện</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">React Native</span>
+                            <span class="tech-tag">Firebase</span>
+                            <span class="tech-tag">Redux</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="project-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-palette"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link floating-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <div class="link-ripple"></div>
+                                </a>
+                                <a href="#" class="project-link floating-link">
+                                    <i class="fab fa-github"></i>
+                                    <div class="link-ripple"></div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>Website portfolio cá nhân với thiết kế hiện đại và nhiều hiệu ứng animation</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">Java</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Spring Boot</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Git</span>
+                            <span class="tech-tag">CI/CD</span>
+                            <span class="tech-tag">MongoDB</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Liên hệ với tôi</h2>
+                <div class="title-underline"></div>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-right">
+                    <h3>Hãy để lại tin nhắn</h3>
+                    <p>Tôi luôn sẵn sàng lắng nghe ý tưởng mới và cơ hội hợp tác thú vị.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Email</h4>
+                                <p>nhotungdo89@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Điện thoại</h4>
+                                <p>+84 931982568</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Địa chỉ</h4>
+                                <p>Hà Nội, Việt Nam</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form" data-aos="fade-left">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Họ và tên" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" id="subject" name="subject" placeholder="Tiêu đề" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message" placeholder="Nội dung tin nhắn" rows="5"
+                                required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <span>Gửi tin nhắn</span>
+                            <div class="btn-ripple"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-background">
+            <div class="gradient-overlay"></div>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Portfolio</h3>
+                    <p>Tạo ra những trải nghiệm số tuyệt vời với sự sáng tạo và công nghệ hiện đại</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liên kết nhanh</h4>
+                    <ul>
+                        <li><a href="#home">Trang chủ</a></li>
+                        <li><a href="#about">Giới thiệu</a></li>
+                        <li><a href="#projects">Dự án</a></li>
+                        <li><a href="#contact">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Mạng xã hội</h4>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/đỗ-nho-tùng-06478b315" class="social-link linkedin-link"
+                            target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://github.com/nhotungdo" class="social-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="GitHub Profile">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://www.instagram.com/donhotung/" class="social-link" target="_blank"
+                            rel="noopener noreferrer" aria-label="Instagram Profile">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Portfolio.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
