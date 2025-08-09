@@ -46,6 +46,10 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Smooth Scroll Animations** using AOS library
 - **Interactive Hover Effects** with ripple animations
 - **Floating Elements** and glow effects
+- **3D Card Tilt Effects** with mouse tracking
+- **Magnetic Button Effects** for interactive feel
+- **Text Scramble Effects** on hover
+- **Dynamic Particle System** with real-time controls
 
 ### 📱 **Responsive Breakpoints**
 - **Mobile**: < 768px
@@ -57,6 +61,11 @@ A modern, responsive portfolio website showcasing my projects, skills, and exper
 - **Primary Language**: **JavaScript ES6+** (Vanilla JS)
 - **Frontend**: HTML5, CSS3
 - **Animation Libraries**: GSAP (GreenSock), AOS (Animate On Scroll)
+- **Advanced Features**: 
+  - Theme Management System
+  - Performance Monitoring
+  - Animation Controls
+  - 3D Effects & Interactions
 - **Icons**: Font Awesome
 - **Development**: VS Code
 - **Deployment**: Vercel
@@ -127,6 +136,9 @@ Adjust timing and effects in `script.js`:
 - **Optimized Animations**: CSS transforms and opacity for smooth 60fps
 - **Throttled Events**: Scroll events optimized for performance
 - **Minimal Reflows**: Efficient layout management
+- **Real-time Monitoring**: FPS, memory usage, and load time tracking
+- **Dynamic Controls**: Adjustable animation speed and particle count
+- **Performance Optimization**: Efficient event handling and memory management
 
 ## 🤝 Contributing
 
@@ -166,5 +178,5 @@ You are free to:
 ---
 
 <div align="center">
-  <strong>Made with ❤️ by <a href="https://github.com/donhotung">DonHoTung</a></strong>
+  <strong>Made with ❤️ by <a href="https://github.com/nhotungdo">DonHoTung</a></strong>
 </div>
