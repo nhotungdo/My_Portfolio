@@ -4,41 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Đỗ Nho Tùng - Software Engineer & DevOps Engineer</title>
+    <meta name="description"
+        content="Portfolio của Đỗ Nho Tùng - Software Engineer & DevOps Engineer với kinh nghiệm phát triển web, mobile và cloud solutions">
+    <meta name="keywords" content="Software Engineer, DevOps, Web Development, React, Node.js, Docker, AWS">
+    <meta name="author" content="Đỗ Nho Tùng">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-portfolio.com/">
+    <meta property="og:title" content="Đỗ Nho Tùng - Software Engineer & DevOps Engineer">
+    <meta property="og:description" content="Portfolio chuyên nghiệp với các dự án web, mobile và cloud solutions">
+    <meta property="og:image" content="img/me2.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://your-portfolio.com/">
+    <meta property="twitter:title" content="Đỗ Nho Tùng - Software Engineer & DevOps Engineer">
+    <meta property="twitter:description" content="Portfolio chuyên nghiệp với các dự án web, mobile và cloud solutions">
+    <meta property="twitter:image" content="img/me2.jpg">
+
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Modern Animation Libraries -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
+    <!-- Typed.js for typing effects -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <!-- Particles.js for background effects -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 </head>
 
 <body>
-    <!-- Custom Cursor -->
-    <div class="custom-cursor" id="custom-cursor"></div>
-    <div class="custom-cursor-follower" id="custom-cursor-follower"></div>
+    <!-- Purple Meteor Shower Effect -->
+    <div class="meteor-shower" id="meteor-shower">
+        <div class="meteor" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+        <div class="meteor" style="top: 20%; left: 30%; animation-delay: 1s;"></div>
+        <div class="meteor" style="top: 15%; left: 50%; animation-delay: 2s;"></div>
+        <div class="meteor" style="top: 25%; left: 70%; animation-delay: 3s;"></div>
+        <div class="meteor" style="top: 35%; left: 20%; animation-delay: 4s;"></div>
+        <div class="meteor" style="top: 45%; left: 40%; animation-delay: 5s;"></div>
+        <div class="meteor" style="top: 55%; left: 60%; animation-delay: 6s;"></div>
+        <div class="meteor" style="top: 65%; left: 80%; animation-delay: 7s;"></div>
+        <div class="meteor" style="top: 75%; left: 15%; animation-delay: 8s;"></div>
+        <div class="meteor" style="top: 85%; left: 35%; animation-delay: 9s;"></div>
+        <div class="meteor" style="top: 95%; left: 55%; animation-delay: 10s;"></div>
+        <div class="meteor" style="top: 5%; left: 75%; animation-delay: 11s;"></div>
+    </div>
 
-    <!-- Loading Screen -->
+    <!-- Modern Loading Screen -->
     <div id="loading-screen" class="loading-screen">
-        <div class="loading-logo">
-            <div class="logo-circle"></div>
-            <h2>Portfolio</h2>
+        <div class="loading-content">
+            <div class="loading-logo">
+                <div class="logo-svg">
+                    <svg viewBox="0 0 100 100" class="logo-circle">
+                        <circle cx="50" cy="50" r="45" fill="none" stroke="url(#gradient)" stroke-width="2" />
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#4b0082" />
+                                <stop offset="100%" style="stop-color:#a100a1" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <h2 class="loading-text">Đỗ Nho Tùng</h2>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar">
+                    <div class="progress-fill"></div>
+                </div>
+                <span class="progress-text">0%</span>
+            </div>
         </div>
     </div>
 
-    <!-- Navigation -->
+    <!-- Enhanced Navigation -->
     <nav class="navbar" id="navbar">
         <div class="navbar-container">
-            <a href="#" class="navbar-brand">Portfolio</a>
+            <a href="#" class="navbar-brand">
+                <span class="brand-text">Đỗ Nho Tùng</span>
+                <div class="brand-underline"></div>
+            </a>
             <ul class="nav-menu">
-                <li><a href="#home" class="nav-link">Trang chủ</a></li>
-                <li><a href="#about" class="nav-link">Giới thiệu</a></li>
-                <li><a href="#skills" class="nav-link">Kỹ năng</a></li>
-                <li><a href="#projects" class="nav-link">Dự án</a></li>
-                <li><a href="#contact" class="nav-link">Liên hệ</a></li>
+                <li><a href="#home" class="nav-link" data-section="home">
+                        <span class="nav-text">Trang chủ</span>
+                        <div class="nav-indicator"></div>
+                    </a></li>
+                <li><a href="#about" class="nav-link" data-section="about">
+                        <span class="nav-text">Giới thiệu</span>
+                        <div class="nav-indicator"></div>
+                    </a></li>
+                <li><a href="#experience" class="nav-link" data-section="experience">
+                        <span class="nav-text">Kinh nghiệm</span>
+                        <div class="nav-indicator"></div>
+                    </a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">
+                        <span class="nav-text">Kỹ năng</span>
+                        <div class="nav-indicator"></div>
+                    </a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">
+                        <span class="nav-text">Dự án</span>
+                        <div class="nav-indicator"></div>
+                    </a></li>
+                <li><a href="#education" class="nav-link" data-section="education">
+                        <span class="nav-text">Học vấn</span>
+                        <div class="nav-indicator"></div>
+                    </a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">
+                        <span class="nav-text">Liên hệ</span>
+                        <div class="nav-indicator"></div>
+                    </a></li>
             </ul>
             <div class="nav-controls">
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Purple Meteor Mode">
                     <i class="fas fa-moon"></i>
+                    <div class="toggle-ripple"></div>
                 </button>
+                <a href="cv/DoNhoTung_CV.pdf" class="cv-download-btn" download>
+                    <i class="fas fa-download"></i>
+                    <span>CV</span>
+                </a>
                 <div class="hamburger">
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -48,98 +138,238 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- Enhanced Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
             <div id="particles-js" class="particles-container"></div>
             <div class="gradient-overlay"></div>
+            <div class="floating-shapes">
+                <div class="shape shape-1"></div>
+                <div class="shape shape-2"></div>
+                <div class="shape shape-3"></div>
+            </div>
         </div>
         <div class="hero-content">
-            <div class="hero-text" data-aos="fade-up">
+            <div class="hero-text">
+                <div class="hero-greeting">
+                    <span class="greeting-text">Xin chào, tôi là</span>
+                </div>
                 <h1 class="hero-title">
-                    <span class="typing-text">Xin chào, tôi là</span>
-                    <span class="hero-name scramble-text">Đỗ Nho Tùng</span>
+                    <span class="hero-name" id="typed-name">Đỗ Nho Tùng</span>
                 </h1>
-                <p class="hero-subtitle">Software Engineer & DevOps Engineer</p>
+                <div class="hero-subtitle">
+                    <span class="subtitle-text" id="typed-subtitle">Software Engineer & DevOps Engineer</span>
+                </div>
                 <p class="hero-description">
-                    Tôi tạo ra những trải nghiệm số tuyệt vời với sự sáng tạo và công nghệ hiện đại
+                    Tôi là một Software Engineer đam mê công nghệ với 3+ năm kinh nghiệm trong phát triển web,
+                    mobile và DevOps. Tôi tạo ra những giải pháp công nghệ hiện đại và hiệu quả.
                 </p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary pulse-btn floating-btn">
-                        <span>Xem dự án</span>
-                        <div class="btn-ripple"></div>
-                        <div class="btn-glow"></div>
+                    <button class="btn btn-primary magnetic-btn" data-magnetic onclick="scrollToSection('projects')">
+                        <span class="btn-text">Xem dự án</span>
+                        <div class="btn-background"></div>
+                        <div class="btn-border"></div>
                     </button>
-                    <button class="btn btn-secondary floating-btn">
-                        <span>Liên hệ</span>
-                        <div class="btn-ripple"></div>
+                    <button class="btn btn-secondary magnetic-btn" data-magnetic onclick="scrollToSection('contact')">
+                        <span class="btn-text">Liên hệ</span>
+                        <div class="btn-background"></div>
+                        <div class="btn-border"></div>
                     </button>
+                    <a href="cv/DoNhoTung_CV.pdf" class="btn btn-outline magnetic-btn" data-magnetic download>
+                        <span class="btn-text">Tải CV</span>
+                        <div class="btn-background"></div>
+                        <div class="btn-border"></div>
+                    </a>
+                </div>
+                <div class="hero-social">
+                    <a href="https://github.com/nhotungdo" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/đỗ-nho-tùng-06478b315" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/donhotung/" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:nhotungdo89@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
-            <div class="hero-visual" data-aos="fade-left">
+            <div class="hero-visual">
                 <div class="hero-avatar">
-                    <div class="avatar-circle">
-                        <img src="img/me2.jpg" alt="Đỗ Nho Tùng" class="avatar-photo">
-                        <div class="avatar-ring"></div>
+                    <div class="avatar-container">
+                        <div class="avatar-image">
+                            <img src="img/me2.jpg" alt="Đỗ Nho Tùng" class="avatar-photo">
+                        </div>
+                        <div class="avatar-ring ring-1"></div>
+                        <div class="avatar-ring ring-2"></div>
+                        <div class="avatar-ring ring-3"></div>
                         <div class="avatar-particles"></div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="scroll-indicator">
+            <div class="scroll-text">Cuộn xuống</div>
             <div class="scroll-arrow"></div>
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- Enhanced About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title scramble-text">Về tôi</h2>
-                <div class="title-underline"></div>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Về tôi</span>
+                    <div class="title-underline"></div>
+                </h2>
             </div>
             <div class="about-content">
-                <div class="about-image" data-aos="fade-right">
+                <div class="about-image">
                     <div class="image-container">
-                        <img src="img/me2.jpg" alt="Đỗ Nho Tùng - Software Engineer" class="about-photo">
-                        <div class="image-overlay"></div>
+                        <img src="img/me2.jpg" alt="Đỗ Nho Tùng" class="about-photo">
+                        <div class="image-overlay">
+                            <div class="overlay-content">
+                                <i class="fas fa-user"></i>
+                                <span>Developer</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="about-text" data-aos="fade-left">
-                    <h3>Software Engineer với đam mê công nghệ</h3>
-                    <p>
+                <div class="about-text">
+                    <h3 class="about-heading">Software Engineer với đam mê công nghệ</h3>
+                    <p class="about-description">
                         Tôi là một Software Engineer với hơn 1 năm kinh nghiệm trong việc phát triển
                         phần mềm, web application và DevOps. Tôi yêu thích việc xây dựng những hệ thống
                         hiệu quả và những giải pháp công nghệ tối ưu.
                     </p>
-                    <div class="skills">
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="100">
-                            <div class="skill-icon">
-                                <i class="fab fa-html5"></i>
-                                <div class="skill-glow"></div>
-                            </div>
-                            <span>HTML5</span>
+                    <p class="about-description">
+                        Với kiến thức vững chắc về cả Frontend và Backend, tôi có thể tham gia vào
+                        toàn bộ quy trình phát triển sản phẩm từ thiết kế đến triển khai và bảo trì.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item" data-counter="1">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Năm kinh nghiệm</span>
                         </div>
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="200">
-                            <div class="skill-icon">
-                                <i class="fab fa-css3-alt"></i>
-                                <div class="skill-glow"></div>
-                            </div>
-                            <span>CSS3</span>
+                        <div class="stat-item" data-counter="20">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">Dự án hoàn thành</span>
                         </div>
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="300">
-                            <div class="skill-icon">
-                                <i class="fab fa-js"></i>
-                                <div class="skill-glow"></div>
-                            </div>
-                            <span>JavaScript</span>
+                        <div class="stat-item" data-counter="100">
+                            <span class="stat-number">0</span>
+                            <span class="stat-label">% Hài lòng</span>
                         </div>
-                        <div class="skill-item" data-aos="zoom-in" data-aos-delay="400">
-                            <div class="skill-icon">
-                                <i class="fab fa-java"></i>
-                                <div class="skill-glow"></div>
-                            </div>
-                            <span>Java</span>
+                    </div>
+                    <div class="about-actions">
+                        <a href="cv/DoNhoTung_CV.pdf" class="btn btn-primary" download>
+                            <i class="fas fa-download"></i>
+                            <span>Tải CV</span>
+                        </a>
+                        <button class="btn btn-secondary" onclick="scrollToSection('contact')">
+                            <i class="fas fa-envelope"></i>
+                            <span>Liên hệ</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Kinh nghiệm làm việc</span>
+                    <div class="title-underline"></div>
+                </h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="job-title">Software Engineer</h3>
+                            <span class="company-name">Tech Company ABC</span>
+                            <span class="job-period">2023 - Hiện tại</span>
+                        </div>
+                        <p class="job-description">
+                            Phát triển và bảo trì các ứng dụng web sử dụng React, Node.js và MongoDB.
+                            Tham gia vào việc thiết kế kiến trúc hệ thống và tối ưu hóa hiệu suất.
+                        </p>
+                        <div class="job-achievements">
+                            <h4>Thành tựu nổi bật:</h4>
+                            <ul>
+                                <li>Tăng tốc độ tải trang lên 40%</li>
+                                <li>Giảm 30% lỗi bug trong production</li>
+                                <li>Mentor 2 junior developers</li>
+                            </ul>
+                        </div>
+                        <div class="job-tech">
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Docker</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="job-title">Frontend Developer</h3>
+                            <span class="company-name">Digital Agency XYZ</span>
+                            <span class="job-period">2022 - 2023</span>
+                        </div>
+                        <p class="job-description">
+                            Phát triển giao diện người dùng cho các dự án web và mobile.
+                            Làm việc với team design để tạo ra trải nghiệm người dùng tốt nhất.
+                        </p>
+                        <div class="job-achievements">
+                            <h4>Thành tựu nổi bật:</h4>
+                            <ul>
+                                <li>Hoàn thành 15+ dự án web</li>
+                                <li>Đạt 95% satisfaction score từ khách hàng</li>
+                                <li>Implement responsive design cho tất cả dự án</li>
+                            </ul>
+                        </div>
+                        <div class="job-tech">
+                            <span class="tech-tag">HTML/CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">React</span>
+                            <span class="tech-tag">Figma</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="job-title">Junior Developer</h3>
+                            <span class="company-name">Startup DEF</span>
+                            <span class="job-period">2021 - 2022</span>
+                        </div>
+                        <p class="job-description">
+                            Tham gia phát triển MVP cho startup. Học hỏi và áp dụng các công nghệ mới
+                            trong môi trường startup năng động.
+                        </p>
+                        <div class="job-achievements">
+                            <h4>Thành tựu nổi bật:</h4>
+                            <ul>
+                                <li>Phát triển MVP trong 3 tháng</li>
+                                <li>Học và áp dụng 5+ công nghệ mới</li>
+                                <li>Tham gia pitch cho investors</li>
+                            </ul>
+                        </div>
+                        <div class="job-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                            <span class="tech-tag">AWS</span>
                         </div>
                     </div>
                 </div>
@@ -147,16 +377,387 @@
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <!-- Enhanced Skills Section -->
+    <section id="skills" class="skills">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title scramble-text">Dự án của tôi</h2>
-                <div class="title-underline"></div>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Kỹ năng</span>
+                    <div class="title-underline"></div>
+                </h2>
+                <p class="section-description">
+                    Tôi bắt đầu với HTML/CSS từ năm 2020, sau đó mở rộng sang JavaScript và Java.
+                    Hiện tại tôi tập trung phát triển web full-stack và thường xuyên học thêm React & Spring Boot.
+                </p>
             </div>
 
-            <!-- Project Filter Buttons -->
-            <div class="project-filters" data-aos="fade-up" data-aos-delay="100">
+            <div class="skills-container">
+                <!-- Technical Skills -->
+                <div class="skills-section">
+                    <h3 class="skills-section-title">
+                        <i class="fas fa-code"></i>
+                        Kỹ năng chuyên môn
+                    </h3>
+
+                    <div class="skills-grid">
+                        <!-- Programming Languages -->
+                        <div class="skill-category">
+                            <h4 class="category-title">
+                                <i class="fas fa-laptop-code"></i>
+                                Ngôn ngữ lập trình
+                            </h4>
+                            <div class="skill-items">
+                                <div class="skill-item" data-skill="JavaScript" data-project="Sneaker Store Website">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fab fa-js-square"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">JavaScript</span>
+                                            <span class="skill-level">Advanced</span>
+                                        </div>
+                                        <div class="skill-stars">★★★★☆</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="90"></div>
+                                        </div>
+                                        <span class="progress-text">90%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        Used for creating interactive UI in <strong>Sneaker Store Website</strong>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="Java" data-project="Tour Management System">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fab fa-java"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">Java</span>
+                                            <span class="skill-level">Intermediate</span>
+                                        </div>
+                                        <div class="skill-stars">★★★☆☆</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="75"></div>
+                                        </div>
+                                        <span class="progress-text">75%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        Backend development for <strong>Tour Management System</strong>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="Python" data-project="Data Analysis Dashboard">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fab fa-python"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">Python</span>
+                                            <span class="skill-level">Intermediate</span>
+                                        </div>
+                                        <div class="skill-stars">★★★☆☆</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="80"></div>
+                                        </div>
+                                        <span class="progress-text">80%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        Data processing for <strong>Analytics Dashboard</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Frontend -->
+                        <div class="skill-category">
+                            <h4 class="category-title">
+                                <i class="fas fa-palette"></i>
+                                Frontend Development
+                            </h4>
+                            <div class="skill-items">
+                                <div class="skill-item" data-skill="HTML5" data-project="Portfolio Website">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fab fa-html5"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">HTML5</span>
+                                            <span class="skill-level">Advanced</span>
+                                        </div>
+                                        <div class="skill-stars">★★★★★</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="95"></div>
+                                        </div>
+                                        <span class="progress-text">95%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        Semantic markup for <strong>Portfolio Website</strong>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="CSS3" data-project="E-commerce Platform">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fab fa-css3-alt"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">CSS3</span>
+                                            <span class="skill-level">Advanced</span>
+                                        </div>
+                                        <div class="skill-stars">★★★★☆</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="90"></div>
+                                        </div>
+                                        <span class="progress-text">90%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        Responsive design for <strong>E-commerce Platform</strong>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="React" data-project="Task Management App">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fab fa-react"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">React</span>
+                                            <span class="skill-level">Advanced</span>
+                                        </div>
+                                        <div class="skill-stars">★★★★☆</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="85"></div>
+                                        </div>
+                                        <span class="progress-text">85%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        Component-based UI for <strong>Task Management App</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Backend -->
+                        <div class="skill-category">
+                            <h4 class="category-title">
+                                <i class="fas fa-server"></i>
+                                Backend Development
+                            </h4>
+                            <div class="skill-items">
+                                <div class="skill-item" data-skill="Node.js" data-project="API Development">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fab fa-node-js"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">Node.js</span>
+                                            <span class="skill-level">Advanced</span>
+                                        </div>
+                                        <div class="skill-stars">★★★★☆</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="88"></div>
+                                        </div>
+                                        <span class="progress-text">88%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        RESTful API development for <strong>E-commerce Platform</strong>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="Spring Boot" data-project="Enterprise Application">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fas fa-leaf"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">Spring Boot</span>
+                                            <span class="skill-level">Intermediate</span>
+                                        </div>
+                                        <div class="skill-stars">★★★☆☆</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="70"></div>
+                                        </div>
+                                        <span class="progress-text">70%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        Enterprise backend for <strong>Tour Management System</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Database -->
+                        <div class="skill-category">
+                            <h4 class="category-title">
+                                <i class="fas fa-database"></i>
+                                Database & Tools
+                            </h4>
+                            <div class="skill-items">
+                                <div class="skill-item" data-skill="MongoDB" data-project="NoSQL Database">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fas fa-database"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">MongoDB</span>
+                                            <span class="skill-level">Advanced</span>
+                                        </div>
+                                        <div class="skill-stars">★★★★☆</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="85"></div>
+                                        </div>
+                                        <span class="progress-text">85%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        NoSQL database for <strong>E-commerce Platform</strong>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="MySQL" data-project="Relational Database">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fas fa-database"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">MySQL</span>
+                                            <span class="skill-level">Intermediate</span>
+                                        </div>
+                                        <div class="skill-stars">★★★☆☆</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="75"></div>
+                                        </div>
+                                        <span class="progress-text">75%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        Designed & optimized database for <strong>Tour Management System</strong>
+                                    </div>
+                                </div>
+
+                                <div class="skill-item" data-skill="Git" data-project="Version Control">
+                                    <div class="skill-header">
+                                        <div class="skill-icon">
+                                            <i class="fab fa-git-alt"></i>
+                                            <div class="skill-glow"></div>
+                                        </div>
+                                        <div class="skill-info">
+                                            <span class="skill-name">Git</span>
+                                            <span class="skill-level">Advanced</span>
+                                        </div>
+                                        <div class="skill-stars">★★★★★</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" data-progress="90"></div>
+                                        </div>
+                                        <span class="progress-text">90%</span>
+                                    </div>
+                                    <div class="skill-description">
+                                        Version control for all <strong>development projects</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="skills-section">
+                    <h3 class="skills-section-title">
+                        <i class="fas fa-users"></i>
+                        Kỹ năng mềm
+                    </h3>
+
+                    <div class="soft-skills-grid">
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <h4 class="soft-skill-name">Giao tiếp hiệu quả</h4>
+                            <p class="soft-skill-description">Effective Communication</p>
+                            <div class="soft-skill-level">
+                                <span class="level-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <h4 class="soft-skill-name">Làm việc nhóm</h4>
+                            <p class="soft-skill-description">Teamwork & Collaboration</p>
+                            <div class="soft-skill-level">
+                                <span class="level-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <h4 class="soft-skill-name">Quản lý thời gian</h4>
+                            <p class="soft-skill-description">Time Management</p>
+                            <div class="soft-skill-level">
+                                <span class="level-badge intermediate">Intermediate</span>
+                            </div>
+                        </div>
+
+                        <div class="soft-skill-item">
+                            <div class="soft-skill-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <h4 class="soft-skill-name">Giải quyết vấn đề</h4>
+                            <p class="soft-skill-description">Problem Solving</p>
+                            <div class="soft-skill-level">
+                                <span class="level-badge advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Dự án nổi bật</span>
+                    <div class="title-underline"></div>
+                </h2>
+            </div>
+            <div class="project-filters">
                 <button class="filter-btn active" data-filter="all">
                     <span>Tất cả</span>
                     <div class="filter-ripple"></div>
@@ -169,187 +770,140 @@
                     <span>Mobile</span>
                     <div class="filter-ripple"></div>
                 </button>
-                <button class="filter-btn" data-filter="ai">
-                    <span>AI/ML</span>
+                <button class="filter-btn" data-filter="devops">
+                    <span>DevOps</span>
                     <div class="filter-ripple"></div>
                 </button>
             </div>
-
-            <div class="project-sort-controls" data-aos="fade-up" data-aos-delay="150">
-                <select id="sort-projects" class="sort-select">
-                    <option value="default">Sắp xếp mặc định</option>
-                    <option value="name">Theo tên</option>
-                    <option value="date">Theo ngày</option>
-                    <option value="category">Theo danh mục</option>
-                </select>
-                <button id="toggle-drag-drop" class="drag-toggle-btn">
-                    <i class="fas fa-grip-vertical"></i>
-                    <span>Kéo thả</span>
-                </button>
-            </div>
-
-            <div class="projects-grid" id="sortable-projects">
-                <div class="project-card" data-aos="fade-up" data-aos-delay="100" data-category="web">
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
                     <div class="project-image">
                         <div class="image-placeholder">
-                            <i class="fas fa-code"></i>
+                            <i class="fas fa-shopping-cart"></i>
                         </div>
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link floating-link">
+                                <a href="#" class="project-link">
                                     <i class="fas fa-external-link-alt"></i>
-                                    <div class="link-ripple"></div>
+                                    <span>Live Demo</span>
                                 </a>
-                                <a href="#" class="project-link floating-link">
+                                <a href="https://github.com/nhotungdo/ecommerce-platform" class="project-link">
                                     <i class="fab fa-github"></i>
-                                    <div class="link-ripple"></div>
+                                    <span>Code</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>E-commerce Website</h3>
-                        <p>Website thương mại điện tử hiện đại với giao diện responsive và thanh toán online</p>
+                        <h3 class="project-title">E-commerce Platform</h3>
+                        <p class="project-description">
+                            Nền tảng thương mại điện tử hiện đại với đầy đủ tính năng thanh toán,
+                            quản lý đơn hàng và admin dashboard.
+                        </p>
                         <div class="project-tech">
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Docker</span>
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Git</span>
-                            <span class="tech-tag">CI/CD</span>
-                            <span class="tech-tag">MongoDB</span>
                             <span class="tech-tag">React</span>
+                            <span class="tech-tag">Node.js</span>
+                            <span class="tech-tag">MongoDB</span>
+                            <span class="tech-tag">Stripe</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="200" data-category="mobile">
+                <div class="project-card" data-category="mobile">
                     <div class="project-image">
                         <div class="image-placeholder">
-                            <i class="fas fa-mobile-alt"></i>
+                            <i class="fas fa-tasks"></i>
                         </div>
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link floating-link">
+                                <a href="#" class="project-link">
                                     <i class="fas fa-external-link-alt"></i>
-                                    <div class="link-ripple"></div>
+                                    <span>Live Demo</span>
                                 </a>
-                                <a href="#" class="project-link floating-link">
+                                <a href="https://github.com/nhotungdo/task-manager" class="project-link">
                                     <i class="fab fa-github"></i>
-                                    <div class="link-ripple"></div>
+                                    <span>Code</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>Mobile App</h3>
-                        <p>Ứng dụng di động quản lý công việc với giao diện người dùng thân thiện</p>
+                        <h3 class="project-title">Task Management App</h3>
+                        <p class="project-description">
+                            Ứng dụng quản lý công việc với giao diện đẹp, tính năng real-time
+                            và đồng bộ đa thiết bị.
+                        </p>
                         <div class="project-tech">
                             <span class="tech-tag">React Native</span>
                             <span class="tech-tag">Firebase</span>
                             <span class="tech-tag">Redux</span>
+                            <span class="tech-tag">Socket.io</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card" data-aos="fade-up" data-aos-delay="300" data-category="ai">
+                <div class="project-card" data-category="devops">
                     <div class="project-image">
                         <div class="image-placeholder">
-                            <i class="fas fa-palette"></i>
+                            <i class="fas fa-server"></i>
                         </div>
                         <div class="project-overlay">
                             <div class="project-links">
-                                <a href="#" class="project-link floating-link">
+                                <a href="#" class="project-link">
                                     <i class="fas fa-external-link-alt"></i>
-                                    <div class="link-ripple"></div>
+                                    <span>Live Demo</span>
                                 </a>
-                                <a href="#" class="project-link floating-link">
+                                <a href="https://github.com/nhotungdo/cicd-pipeline" class="project-link">
                                     <i class="fab fa-github"></i>
-                                    <div class="link-ripple"></div>
+                                    <span>Code</span>
                                 </a>
                             </div>
                         </div>
                     </div>
                     <div class="project-content">
-                        <h3>Portfolio Website</h3>
-                        <p>Website portfolio cá nhân với thiết kế hiện đại và nhiều hiệu ứng animation</p>
+                        <h3 class="project-title">CI/CD Pipeline</h3>
+                        <p class="project-description">
+                            Hệ thống CI/CD tự động với Docker, Jenkins và AWS.
+                            Tự động build, test và deploy ứng dụng.
+                        </p>
                         <div class="project-tech">
-                            <span class="tech-tag">HTML5</span>
-                            <span class="tech-tag">CSS3</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Java</span>
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">Spring Boot</span>
-                            <span class="tech-tag">MySQL</span>
                             <span class="tech-tag">Docker</span>
+                            <span class="tech-tag">Jenkins</span>
+                            <span class="tech-tag">AWS</span>
+                            <span class="tech-tag">Kubernetes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <div class="image-placeholder">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    <span>Live Demo</span>
+                                </a>
+                                <a href="https://github.com/nhotungdo/dashboard" class="project-link">
+                                    <i class="fab fa-github"></i>
+                                    <span>Code</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Analytics Dashboard</h3>
+                        <p class="project-description">
+                            Dashboard phân tích dữ liệu với biểu đồ tương tác,
+                            real-time updates và export reports.
+                        </p>
+                        <div class="project-tech">
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">D3.js</span>
                             <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Git</span>
-                            <span class="tech-tag">CI/CD</span>
-                            <span class="tech-tag">MongoDB</span>
-
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="400" data-category="game"
-                    data-date="2024-11">
-                    <div class="project-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link floating-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <div class="link-ripple"></div>
-                                </a>
-                                <a href="#" class="project-link floating-link">
-                                    <i class="fab fa-github"></i>
-                                    <div class="link-ripple"></div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>2D Platformer Game</h3>
-                        <p>Game platform 2D với physics engine và animation mượt mà</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Unity</span>
-                            <span class="tech-tag">C#</span>
-                            <span class="tech-tag">Blender</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card" data-aos="fade-up" data-aos-delay="500" data-category="design"
-                    data-date="2024-10">
-                    <div class="project-image">
-                        <div class="image-placeholder">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link floating-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                    <div class="link-ripple"></div>
-                                </a>
-                                <a href="#" class="project-link floating-link">
-                                    <i class="fab fa-github"></i>
-                                    <div class="link-ripple"></div>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>UI/UX Design System</h3>
-                        <p>Hệ thống thiết kế UI/UX hoàn chỉnh cho ứng dụng web và mobile</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Figma</span>
-                            <span class="tech-tag">Adobe XD</span>
-                            <span class="tech-tag">Sketch</span>
+                            <span class="tech-tag">PostgreSQL</span>
                         </div>
                     </div>
                 </div>
@@ -357,17 +911,85 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Học vấn & Chứng chỉ</span>
+                    <div class="title-underline"></div>
+                </h2>
+            </div>
+            <div class="education-grid">
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3 class="degree-title">Cử nhân Công nghệ Thông tin</h3>
+                        <p class="school-name">Đại học FPT Hà Nội</p>
+                        <p class="education-period">2022 - 2026</p>
+                        <p class="education-description">
+                            Chuyên ngành Kỹ thuật phần mềm. GPA: 3.5/4.0
+                        </p>
+                        <div class="education-achievements">
+                            <h4>Thành tích:</h4>
+                            <ul>
+                                <li>Top 10% sinh viên xuất sắc</li>
+                                <li>Tham gia cuộc thi lập trình ACM-ICPC</li>
+                                <li>Làm trưởng nhóm dự án tốt nghiệp</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3 class="degree-title">AWS Certified Solutions Architect</h3>
+                        <p class="school-name">Amazon Web Services</p>
+                        <p class="education-period">2023</p>
+                        <p class="education-description">
+                            Chứng chỉ kiến trúc giải pháp AWS - Associate level
+                        </p>
+                    </div>
+                </div>
+
+                <div class="education-item">
+                    <div class="education-icon">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="education-content">
+                        <h3 class="degree-title">Docker Certified Associate</h3>
+                        <p class="school-name">Docker Inc.</p>
+                        <p class="education-period">2022</p>
+                        <p class="education-description">
+                            Chứng chỉ Docker containerization và orchestration
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Enhanced Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title scramble-text">Liên hệ với tôi</h2>
-                <div class="title-underline"></div>
+            <div class="section-header">
+                <h2 class="section-title">
+                    <span class="title-text">Liên hệ</span>
+                    <div class="title-underline"></div>
+                </h2>
             </div>
             <div class="contact-content">
-                <div class="contact-info" data-aos="fade-right">
-                    <h3>Hãy để lại tin nhắn</h3>
-                    <p>Tôi luôn sẵn sàng lắng nghe ý tưởng mới và cơ hội hợp tác thú vị.</p>
+                <div class="contact-info">
+                    <h3 class="contact-heading">Hãy liên hệ với tôi</h3>
+                    <p class="contact-description">
+                        Tôi luôn sẵn sàng thảo luận về các dự án mới và cơ hội hợp tác.
+                        Hãy để lại tin nhắn hoặc liên hệ trực tiếp qua các kênh bên dưới.
+                    </p>
                     <div class="contact-methods">
                         <div class="contact-method">
                             <div class="method-icon">
@@ -383,8 +1005,8 @@
                                 <i class="fas fa-phone"></i>
                             </div>
                             <div class="method-details">
-                                <h4>Điện thoại</h4>
-                                <p>+84 931982568</p>
+                                <h4>Phone</h4>
+                                <p>+84 931 982 568</p>
                             </div>
                         </div>
                         <div class="contact-method">
@@ -392,173 +1014,108 @@
                                 <i class="fas fa-map-marker-alt"></i>
                             </div>
                             <div class="method-details">
-                                <h4>Địa chỉ</h4>
+                                <h4>Location</h4>
                                 <p>Hà Nội, Việt Nam</p>
                             </div>
                         </div>
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="method-details">
+                                <h4>Thời gian làm việc</h4>
+                                <p>Thứ 2 - Thứ 6: 9:00 - 18:00</p>
+                            </div>
+                        </div>
                     </div>
+
                 </div>
-                <div class="contact-form" data-aos="fade-left">
+                <div class="contact-form">
                     <form id="contact-form">
                         <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Họ và tên" required>
-                            <div class="form-error" id="name-error"></div>
+                            <input type="text" id="name" name="name" placeholder="Tên của bạn" required>
+                            <div class="form-error"></div>
                         </div>
                         <div class="form-group">
                             <input type="email" id="email" name="email" placeholder="Email" required>
-                            <div class="form-error" id="email-error"></div>
+                            <div class="form-error"></div>
                         </div>
                         <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Tiêu đề" required>
-                            <div class="form-error" id="subject-error"></div>
+                            <input type="text" id="subject" name="subject" placeholder="Chủ đề" required>
+                            <div class="form-error"></div>
                         </div>
                         <div class="form-group">
-                            <textarea id="message" name="message" placeholder="Nội dung tin nhắn" rows="5"
-                                required></textarea>
-                            <div class="form-error" id="message-error"></div>
+                            <textarea id="message" name="message" placeholder="Nội dung tin nhắn" required></textarea>
+                            <div class="form-error"></div>
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            <span>Gửi tin nhắn</span>
-                            <div class="btn-ripple"></div>
+                        <button type="submit" class="btn btn-primary magnetic-btn" data-magnetic>
+                            <span class="btn-text">Gửi tin nhắn</span>
+                            <div class="btn-background"></div>
+                            <div class="btn-border"></div>
                         </button>
-
-
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Advanced Features Demo Section -->
-    <section id="demo" class="demo-section">
-        <div class="container">
-            <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title scramble-text">Tính năng nâng cao</h2>
-                <div class="title-underline"></div>
-            </div>
-
-            <div class="demo-content">
-                <!-- Parallax Demo -->
-                <div class="demo-item" data-aos="fade-up" data-aos-delay="100">
-                    <h3>Hiệu ứng Parallax</h3>
-                    <div class="parallax-demo">
-                        <div class="parallax-layer" data-speed="0.5">
-                            <div class="demo-card">
-                                <i class="fas fa-mountain"></i>
-                                <h4>Lớp nền</h4>
-                            </div>
-                        </div>
-                        <div class="parallax-layer" data-speed="1.5">
-                            <div class="demo-card">
-                                <i class="fas fa-cloud"></i>
-                                <h4>Lớp giữa</h4>
-                            </div>
-                        </div>
-                        <div class="parallax-layer" data-speed="2.5">
-                            <div class="demo-card">
-                                <i class="fas fa-star"></i>
-                                <h4>Lớp trước</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Interactive Demo -->
-                <div class="demo-item" data-aos="fade-up" data-aos-delay="200">
-                    <h3>Tương tác động</h3>
-                    <div class="interactive-demo">
-                        <div class="magnetic-element" data-magnetic>
-                            <div class="demo-button">
-                                <i class="fas fa-magnet"></i>
-                                <span>Hiệu ứng từ</span>
-                            </div>
-                        </div>
-                        <div class="tilt-element" data-tilt>
-                            <div class="demo-card">
-                                <i class="fas fa-cube"></i>
-                                <h4>3D Tilt</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Performance Demo -->
-                <div class="demo-item" data-aos="fade-up" data-aos-delay="300">
-                    <h3>Hiệu suất</h3>
-                    <div class="performance-demo">
-                        <div class="perf-metric">
-                            <span>FPS:</span>
-                            <span id="fps-counter">60</span>
-                        </div>
-                        <div class="perf-metric">
-                            <span>Memory:</span>
-                            <span id="memory-usage">0 MB</span>
-                        </div>
-                        <div class="perf-metric">
-                            <span>Load Time:</span>
-                            <span id="load-time">0ms</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
+    <!-- Enhanced Footer -->
     <footer class="footer">
         <div class="footer-background">
             <div class="gradient-overlay"></div>
         </div>
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Portfolio</h3>
-                    <p>Tạo ra những trải nghiệm số tuyệt vời với sự sáng tạo và công nghệ hiện đại</p>
-                </div>
-                <div class="footer-section">
-                    <h4>Liên kết nhanh</h4>
-                    <ul>
-                        <li><a href="#home">Trang chủ</a></li>
-                        <li><a href="#about">Giới thiệu</a></li>
-                        <li><a href="#projects">Dự án</a></li>
-                        <li><a href="#contact">Liên hệ</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Mạng xã hội</h4>
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/đỗ-nho-tùng-06478b315" class="social-link linkedin-link"
-                            target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/nhotungdo" class="social-link" target="_blank"
-                            rel="noopener noreferrer" aria-label="GitHub Profile">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="#" class="social-link" target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://www.instagram.com/donhotung/" class="social-link" target="_blank"
-                            rel="noopener noreferrer" aria-label="Instagram Profile">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Đỗ Nho Tùng</h3>
+                <p>Software Engineer & DevOps Engineer với đam mê tạo ra những giải pháp công nghệ hiện đại và hiệu quả.
+                </p>
+                <div class="hero-social">
+                    <a href="https://github.com/nhotungdo" target="_blank" class="social-link">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/đỗ-nho-tùng-06478b315" target="_blank" class="social-link">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://www.instagram.com/donhotung/" target="_blank" class="social-link">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="mailto:nhotungdo89@gmail.com" class="social-link">
+                        <i class="fas fa-envelope"></i>
+                    </a>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Portfolio.</p>
+            <div class="footer-section">
+                <h3>Liên kết nhanh</h3>
+                <ul>
+                    <li><a href="#home">Trang chủ</a></li>
+                    <li><a href="#about">Giới thiệu</a></li>
+                    <li><a href="#experience">Kinh nghiệm</a></li>
+                    <li><a href="#projects">Dự án</a></li>
+                </ul>
             </div>
+            <div class="footer-section">
+                <h3>Liên hệ</h3>
+                <ul>
+                    <li><a href="mailto:nhotungdo89@gmail.com">Email</a></li>
+                    <li><a href="tel:+84931982568">Phone</a></li>
+                    <li><a href="#contact">Form liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Tài liệu</h3>
+                <ul>
+                    <li><a href="cv/DoNhoTung_CV.pdf" download>Download CV</a></li>
+                    <li><a href="portfolio/portfolio.pdf" download>Portfolio PDF</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Đỗ Nho Tùng. Tất cả quyền được bảo lưu.</p>
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Modern Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/lozad@1.16.0/dist/lozad.min.js"></script>
     <script src="script.js"></script>
 </body>
 

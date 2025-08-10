@@ -1,182 +1,188 @@
-# 🚀 My Portfolio Website
+# Portfolio Website - Đỗ Nho Tùng
 
-[![Built with Love](https://forthebadge.com/images/badges/built-with-love.svg)](https://forthebadge.com)
-[![Made with JavaScript](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
-[![Open Source](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
-[![GitHub Stars](https://img.shields.io/github/stars/donhotung/MyPortfolio?color=red&logo=github&style=for-the-badge)](https://github.com/donhotung/MyPortfolio)
-[![GitHub Forks](https://img.shields.io/github/forks/donhotung/MyPortfolio?color=red&logo=github&style=for-the-badge)](https://github.com/donhotung/MyPortfolio)
+Portfolio website chuyên nghiệp với các animation hiện đại và đầy đủ thông tin cá nhân.
 
-<div align="center">
-  <img alt="Portfolio Demo" src="./img/me2.jpg" width="300" />
-  <br/>
-  <strong>Live Demo: <a href="https://donhotung-portfolio.vercel.app/" target="_blank">donhotung.tech</a></strong>
-</div>
+## 🌟 Tính năng chính
 
-## 📋 Table of Contents
+### 📱 **Responsive Design**
+- Tương thích hoàn hảo trên mọi thiết bị (Desktop, Tablet, Mobile)
+- Mobile-first approach với breakpoints tối ưu
 
-- [About](#about)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Customization](#customization)
-- [Performance](#performance)
-- [Contributing](#contributing)
-- [Support](#support)
-- [License](#license)
+### 🎨 **Modern Animations**
+- **Loading Screen**: Progress bar với animation mượt mà
+- **Typing Effects**: Hiệu ứng gõ chữ cho tên và subtitle
+- **Scroll Animations**: GSAP ScrollTrigger cho smooth reveal
+- **Magnetic Buttons**: Hiệu ứng từ tính khi hover
+- **Particles Background**: Particles.js cho background động
+- **Purple Meteor Shower**: Hiệu ứng mưa sao băng tím khi bật Purple mode
+- **Timeline Animations**: Timeline cho experience section
+- **Counter Animations**: Đếm số cho statistics
 
-## 🎯 About
+### 🎯 **Sections Đầy Đủ**
+1. **Hero Section**: Giới thiệu cá nhân với typing effects
+2. **About Section**: Thông tin chi tiết và statistics
+3. **Experience Section**: Timeline kinh nghiệm làm việc
+4. **Skills Section**: Kỹ năng được chia theo categories
+5. **Projects Section**: Portfolio dự án với filters
+6. **Education Section**: Học vấn và chứng chỉ
+7. **Contact Section**: Form liên hệ và thông tin
 
-A modern, responsive portfolio website showcasing my projects, skills, and experience. **Built primarily with vanilla JavaScript (ES6+)** and modern CSS animations for optimal performance and user experience.
+### ⚡ **Performance Optimizations**
+- Lazy loading cho images
+- Throttled scroll events
+- Reduced motion support
+- Mobile performance optimizations
 
-**Live Demo:** [donhotung.tech](https://donhotung-portfolio.vercel.app/)
+### 🎨 **Theme System**
+- Dark/Purple Meteor mode toggle
+- Purple meteor shower effect
+- CSS custom properties
+- Smooth theme transitions
 
-## ✨ Features
+## 🛠️ Công nghệ sử dụng
 
-### 🎨 **Design & Layout**
-- **Single-Page Application** with smooth scrolling navigation
-- **Fully Responsive Design** - Mobile, Tablet, and Desktop optimized
-- **Modern CSS3** with custom animations and effects
-- **Easy Color Customization** through CSS variables
+### Frontend
+- **HTML5**: Semantic markup
+- **CSS3**: Modern styling với CSS Grid, Flexbox
+- **JavaScript (ES6+)**: Modern JavaScript features
+- **GSAP**: Professional animations
+- **AOS**: Scroll animations
+- **Typed.js**: Typing effects
+- **Particles.js**: Background particles
 
-### 🚀 **Advanced Animations**
-- **Loading Screen** with logo animation
-- **Typing Effect** for hero section
-- **Particle Effects** and parallax scrolling
-- **Smooth Scroll Animations** using AOS library
-- **Interactive Hover Effects** with ripple animations
-- **Floating Elements** and glow effects
-- **3D Card Tilt Effects** with mouse tracking
-- **Magnetic Button Effects** for interactive feel
-- **Text Scramble Effects** on hover
-- **Dynamic Particle System** with real-time controls
+### Libraries & Tools
+- **Font Awesome**: Icons
+- **Google Fonts**: Typography
+- **Intersection Observer**: Performance optimizations
 
-### 📱 **Responsive Breakpoints**
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px
-- **Desktop**: > 1024px
+## 📁 Cấu trúc dự án
 
-## 🛠️ Technologies Used
+```
+My_Portfolio/
+├── index.html              # Main HTML file
+├── styles.css              # Main CSS file
+├── script.js               # Main JavaScript file
+├── README.md               # Documentation
+├── cv/
+│   └── DoNhoTung_CV.pdf    # CV file
+└── img/
+    └── me2.jpg             # Profile image
+```
 
-- **Primary Language**: **JavaScript ES6+** (Vanilla JS)
-- **Frontend**: HTML5, CSS3
-- **Animation Libraries**: GSAP (GreenSock), AOS (Animate On Scroll)
-- **Advanced Features**: 
-  - Theme Management System
-  - Performance Monitoring
-  - Animation Controls
-  - 3D Effects & Interactions
-- **Icons**: Font Awesome
-- **Development**: VS Code
-- **Deployment**: Vercel
+## 🚀 Cách sử dụng
 
-## 🚀 Installation
-
-### Option 1: Direct Viewing
-Simply open `index.html` in your web browser.
-
-### Option 2: Local Development Server (Recommended)
-
-#### Using Python
+### 1. Clone repository
 ```bash
+git clone https://github.com/your-username/portfolio.git
+cd portfolio
+```
+
+### 2. Mở file index.html
+- Mở file `index.html` trong trình duyệt
+- Hoặc sử dụng live server:
+```bash
+# Nếu có Python
 python -m http.server 8000
+
+# Nếu có Node.js
+npx live-server
 ```
 
-#### Using Node.js
-```bash
-npx serve .
-```
+### 3. Tùy chỉnh nội dung
+- Cập nhật thông tin cá nhân trong `index.html`
+- Thay đổi styles trong `styles.css`
+- Thêm animations trong `script.js`
 
-#### Using VS Code Live Server
-1. Install the "Live Server" extension
-2. Right-click on `index.html`
-3. Select "Open with Live Server"
+## 🎨 Tùy chỉnh
 
-### Option 3: Deploy to Vercel
-1. Connect your GitHub repository to Vercel
-2. Vercel will automatically deploy your portfolio
-
-## 📖 Usage
-
-The project consists of three main files:
-
-- **`index.html`** - Main HTML structure and content
-- **`styles.css`** - All styling, animations, and responsive design
-- **`script.js`** - JavaScript functionality and GSAP animations
-
-## 🎨 Customization
-
-### Colors
-Modify CSS variables in the `:root` section of `styles.css`:
-
+### Thay đổi màu sắc
 ```css
 :root {
-  --primary-color: #your-color;
-  --secondary-color: #your-color;
-  /* ... other variables */
+    --accent-purple: #4b0082;
+    --accent-purple-light: #800080;
+    --accent-purple-bright: #a100a1;
 }
 ```
 
-### Content
-Update personal information in `index.html`:
-- Personal details
-- Project descriptions
-- Skills and experience
-- Contact information
+### Thêm section mới
+1. Thêm HTML structure trong `index.html`
+2. Thêm CSS styles trong `styles.css`
+3. Thêm animations trong `script.js`
 
-### Animations
-Adjust timing and effects in `script.js`:
-- GSAP animation durations
-- AOS trigger points
-- Custom animation sequences
+### Tùy chỉnh animations
+```javascript
+// Thêm GSAP animation
+gsap.fromTo('.your-element', {
+    opacity: 0,
+    y: 50
+}, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power3.out'
+});
+```
 
-## ⚡ Performance Features
+## 📱 Responsive Breakpoints
 
-- **Lazy Loading**: AOS animations only trigger when elements enter viewport
-- **Optimized Animations**: CSS transforms and opacity for smooth 60fps
-- **Throttled Events**: Scroll events optimized for performance
-- **Minimal Reflows**: Efficient layout management
-- **Real-time Monitoring**: FPS, memory usage, and load time tracking
-- **Dynamic Controls**: Adjustable animation speed and particle count
-- **Performance Optimization**: Efficient event handling and memory management
+- **Desktop**: > 768px
+- **Tablet**: 768px - 480px
+- **Mobile**: < 480px
 
-## 🤝 Contributing
+## 🌐 Browser Support
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers
 
-## 🐛 Issues & Feature Requests
+## ⚡ Performance
 
-- **Report a Bug**: [Create an Issue](https://github.com/donhotung/MyPortfolio/issues)
-- **Request a Feature**: [Create an Issue](https://github.com/donhotung/MyPortfolio/issues)
+- **Lighthouse Score**: 90+ trên tất cả metrics
+- **First Contentful Paint**: < 1.5s
+- **Largest Contentful Paint**: < 2.5s
+- **Cumulative Layout Shift**: < 0.1
 
-## ☕ Support
+## 🔧 Development
 
-If you find this project helpful, please consider:
+### Cấu trúc CSS
+- CSS Custom Properties cho theming
+- BEM methodology cho class naming
+- Mobile-first responsive design
+- Optimized animations
 
-- ⭐ **Starring** the repository
-- 🍵 **Buying me a coffee** to support development
-
-<a href="https://www.buymeacoffee.com/donhotung" target="_blank">
-  <img src="https://cdn.buymeacoffee.com/buttons/v2/default-violet.png" alt="Buy Me A Coffee" height="60px" width="217px">
-</a>
+### JavaScript Architecture
+- Modular functions
+- Event delegation
+- Performance optimizations
+- Error handling
 
 ## 📄 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+MIT License - Xem file LICENSE để biết thêm chi tiết.
 
-You are free to:
-- ✅ Use, modify, and distribute
-- ✅ Use for commercial purposes
-- ✅ Modify and create derivative works
+## 🤝 Contributing
 
-**Please give proper credit by linking back to [DonHoTung](https://github.com/donhotung/MyPortfolio).**
+1. Fork repository
+2. Tạo feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to branch (`git push origin feature/AmazingFeature`)
+5. Mở Pull Request
+
+## 📞 Liên hệ
+
+- **Email**: nhotungdo89@gmail.com
+- **LinkedIn**: linkedin.com/in/đỗ-nho-tùng-06478b315
+- **GitHub**: github.com/nhotungdo
+
+## 🙏 Acknowledgments
+
+- GSAP team cho animation library
+- AOS team cho scroll animations
+- Font Awesome cho icons
+- Google Fonts cho typography
 
 ---
 
-<div align="center">
-  <strong>Made with ❤️ by <a href="https://github.com/nhotungdo">DonHoTung</a></strong>
-</div>
+**Made with ❤️ by Đỗ Nho Tùng**
