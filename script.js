@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
     initPerformanceOptimizations();
     initTimelineAnimations();
     initEducationAnimations();
+    initLanguageChart();
 });
 
 // Utility function to scroll to section
@@ -818,6 +819,570 @@ function initEducationAnimations() {
                 toggleActions: 'play none none reverse'
             }
         });
+    });
+}
+
+// Interactive Project Showcase
+function initLanguageChart() {
+    // Project showcase data
+    const projectShowcaseData = [
+        {
+            id: 1,
+            name: 'JavaScript Game Engine',
+            description: 'Game engine thuần JavaScript với physics engine và WebGL',
+            image: '🎮',
+            category: 'JavaScript',
+            technologies: ['Vanilla JS', 'Canvas API', 'WebGL', 'Web Audio'],
+            difficulty: 'Advanced',
+            completion: 95,
+            github: 'https://github.com/nhotungdo/js-game-engine',
+            live: 'https://game-engine-demo.com',
+            features: ['Physics Engine', 'Sprite Animation', 'Sound System', '3D Rendering'],
+            color: '#f7df1e'
+        },
+        {
+            id: 2,
+            name: 'React E-commerce Platform',
+            description: 'Nền tảng thương mại điện tử hiện đại với đầy đủ tính năng',
+            image: '🛒',
+            category: 'React',
+            technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
+            difficulty: 'Expert',
+            completion: 100,
+            github: 'https://github.com/nhotungdo/ecommerce',
+            live: 'https://ecommerce-demo.com',
+            features: ['Payment Gateway', 'Admin Dashboard', 'Real-time Chat', 'Analytics'],
+            color: '#61dafb'
+        },
+        {
+            id: 3,
+            name: 'Node.js API Framework',
+            description: 'Framework API development với microservices architecture',
+            image: '⚡',
+            category: 'Node.js',
+            technologies: ['Node.js', 'Express', 'PostgreSQL', 'Redis'],
+            difficulty: 'Expert',
+            completion: 92,
+            github: 'https://github.com/nhotungdo/api-framework',
+            live: 'https://api-docs.com',
+            features: ['Microservices', 'Rate Limiting', 'JWT Auth', 'Swagger Docs'],
+            color: '#339933'
+        },
+        {
+            id: 4,
+            name: 'Vue.js Dashboard',
+            description: 'Dashboard phân tích dữ liệu với biểu đồ tương tác',
+            image: '📊',
+            category: 'Vue.js',
+            technologies: ['Vue.js', 'D3.js', 'Python', 'PostgreSQL'],
+            difficulty: 'Advanced',
+            completion: 88,
+            github: 'https://github.com/nhotungdo/dashboard',
+            live: 'https://dashboard-demo.com',
+            features: ['Real-time Charts', 'Data Export', 'User Management', 'Notifications'],
+            color: '#4fc08d'
+        },
+        {
+            id: 5,
+            name: 'TypeScript Library',
+            description: 'Thư viện TypeScript với type-safe utilities',
+            image: '📚',
+            category: 'TypeScript',
+            technologies: ['TypeScript', 'Webpack', 'Jest', 'Rollup'],
+            difficulty: 'Advanced',
+            completion: 85,
+            github: 'https://github.com/nhotungdo/ts-library',
+            live: 'https://ts-library-docs.com',
+            features: ['Type Safety', 'Tree Shaking', 'Unit Tests', 'Documentation'],
+            color: '#3178c6'
+        }
+    ];
+
+    // Create showcase container
+    const skillsSection = document.querySelector('.skills-section');
+    if (!skillsSection) return;
+
+    const showcaseContainer = document.createElement('div');
+    showcaseContainer.className = 'project-showcase-container';
+    showcaseContainer.innerHTML = `
+        <h3 class="showcase-title">
+            <i class="fas fa-cube"></i>
+            Interactive Project Showcase
+        </h3>
+        <div class="showcase-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-rocket"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number" id="totalProjects">0</div>
+                    <div class="stat-label">Projects</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number" id="jsProjects">0</div>
+                    <div class="stat-label">JS Projects</div>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="stat-info">
+                    <div class="stat-number" id="avgCompletion">0</div>
+                    <div class="stat-label">Avg Completion</div>
+                </div>
+            </div>
+        </div>
+        <div class="showcase-content">
+            <div class="project-grid"></div>
+            <div class="showcase-controls">
+                <button class="showcase-btn" id="viewAllBtn">
+                    <i class="fas fa-eye"></i>
+                    View All Projects
+                </button>
+                <button class="showcase-btn" id="filterBtn">
+                    <i class="fas fa-filter"></i>
+                    Filter by Tech
+                </button>
+            </div>
+        </div>
+    `;
+
+    // Insert showcase before skills grid
+    const skillsGrid = skillsSection.querySelector('.skills-grid');
+    skillsSection.insertBefore(showcaseContainer, skillsGrid);
+
+    // Initialize showcase
+    createProjectGrid(projectShowcaseData);
+    updateShowcaseStats(projectShowcaseData);
+    initShowcaseControls();
+
+    // Animate showcase on scroll
+    gsap.fromTo(showcaseContainer, {
+        opacity: 0,
+        y: 50,
+        scale: 0.9
+    }, {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: 'power3.out',
+        scrollTrigger: {
+            trigger: showcaseContainer,
+            start: 'top 85%',
+            toggleActions: 'play none none reverse'
+        }
+    });
+}
+
+function createProjectGrid(data) {
+    const projectGrid = document.querySelector('.project-grid');
+    if (!projectGrid) return;
+
+    projectGrid.innerHTML = '';
+
+    data.forEach((project, index) => {
+        const projectCard = document.createElement('div');
+        projectCard.className = 'project-card-3d';
+        projectCard.setAttribute('data-project-id', project.id);
+        projectCard.innerHTML = `
+            <div class="card-3d-wrapper">
+                <div class="card-3d-front">
+                    <div class="project-image">
+                        <div class="project-emoji">${project.image}</div>
+                        <div class="project-overlay">
+                            <div class="overlay-content">
+                                <div class="project-category" style="background-color: ${project.color}">
+                                    ${project.category}
+                                </div>
+                                <div class="project-difficulty ${project.difficulty.toLowerCase()}">
+                                    ${project.difficulty}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h4 class="project-title">${project.name}</h4>
+                        <p class="project-description">${project.description}</p>
+                        <div class="project-tech">
+                            ${project.technologies.map(tech => `<span class="tech-tag">${tech}</span>`).join('')}
+                        </div>
+                        <div class="project-completion">
+                            <div class="completion-bar">
+                                <div class="completion-fill" style="width: ${project.completion}%; background-color: ${project.color}"></div>
+                            </div>
+                            <span class="completion-text">${project.completion}% Complete</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-3d-back">
+                    <div class="back-content">
+                        <h4 class="back-title">${project.name}</h4>
+                        <div class="features-list">
+                            <h5>Key Features:</h5>
+                            <ul>
+                                ${project.features.map(feature => `<li>${feature}</li>`).join('')}
+                            </ul>
+                        </div>
+                        <div class="project-links">
+                            <a href="${project.github}" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i>
+                                <span>GitHub</span>
+                            </a>
+                            <a href="${project.live}" class="project-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i>
+                                <span>Live Demo</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Add 3D hover effect
+        projectCard.addEventListener('mousemove', (e) => {
+            const rect = projectCard.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+
+            const rotateX = (y - centerY) / 10;
+            const rotateY = (centerX - x) / 10;
+
+            projectCard.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.05, 1.05, 1.05)`;
+        });
+
+        projectCard.addEventListener('mouseleave', () => {
+            projectCard.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+        });
+
+        // Add click to flip effect
+        projectCard.addEventListener('click', () => {
+            projectCard.classList.toggle('flipped');
+        });
+
+        // Animate card entrance
+        gsap.fromTo(projectCard, {
+            opacity: 0,
+            y: 50,
+            scale: 0.8
+        }, {
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            duration: 0.8,
+            ease: 'power3.out',
+            delay: index * 0.2
+        });
+
+        projectGrid.appendChild(projectCard);
+    });
+}
+
+function updateShowcaseStats(data) {
+    const totalProjects = data.length;
+    const jsProjects = data.filter(project => project.category === 'JavaScript').length;
+    const avgCompletion = Math.round(data.reduce((sum, project) => sum + project.completion, 0) / totalProjects);
+
+    gsap.to('#totalProjects', {
+        innerHTML: totalProjects,
+        duration: 1,
+        ease: 'power2.out',
+        snap: { innerHTML: 1 }
+    });
+
+    gsap.to('#jsProjects', {
+        innerHTML: jsProjects,
+        duration: 1,
+        ease: 'power2.out',
+        snap: { innerHTML: 1 }
+    });
+
+    gsap.to('#avgCompletion', {
+        innerHTML: avgCompletion + '%',
+        duration: 1,
+        ease: 'power2.out',
+        snap: { innerHTML: 1 }
+    });
+}
+
+function initShowcaseControls() {
+    const viewAllBtn = document.getElementById('viewAllBtn');
+    const filterBtn = document.getElementById('filterBtn');
+
+    if (viewAllBtn) {
+        viewAllBtn.addEventListener('click', () => {
+            showAllProjects();
+        });
+    }
+
+    if (filterBtn) {
+        filterBtn.addEventListener('click', () => {
+            showFilterModal();
+        });
+    }
+}
+
+function showAllProjects() {
+    const modal = document.createElement('div');
+    modal.className = 'projects-modal';
+    modal.innerHTML = `
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3>All Projects Portfolio</h3>
+                <button class="close-btn" onclick="closeProjectsModal()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="projects-grid-full">
+                    <!-- Additional projects will be loaded here -->
+                </div>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Animate modal
+    gsap.fromTo(modal, {
+        opacity: 0,
+        scale: 0.8
+    }, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.out'
+    });
+
+    // Load additional projects
+    loadAdditionalProjects();
+}
+
+function showFilterModal() {
+    const modal = document.createElement('div');
+    modal.className = 'filter-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <h3>Filter Projects</h3>
+            <div class="filter-options">
+                <div class="filter-group">
+                    <h4>Technology</h4>
+                    <div class="filter-checkboxes">
+                        <label><input type="checkbox" value="JavaScript" checked> JavaScript</label>
+                        <label><input type="checkbox" value="React" checked> React</label>
+                        <label><input type="checkbox" value="Node.js" checked> Node.js</label>
+                        <label><input type="checkbox" value="Vue.js" checked> Vue.js</label>
+                        <label><input type="checkbox" value="TypeScript" checked> TypeScript</label>
+                    </div>
+                </div>
+                <div class="filter-group">
+                    <h4>Difficulty</h4>
+                    <div class="filter-checkboxes">
+                        <label><input type="checkbox" value="Beginner" checked> Beginner</label>
+                        <label><input type="checkbox" value="Advanced" checked> Advanced</label>
+                        <label><input type="checkbox" value="Expert" checked> Expert</label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button onclick="applyFilters()">Apply Filters</button>
+                <button onclick="closeFilterModal()">Cancel</button>
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    gsap.fromTo(modal, {
+        opacity: 0,
+        scale: 0.8
+    }, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.out'
+    });
+}
+
+function closeProjectsModal() {
+    const modal = document.querySelector('.projects-modal');
+    if (modal) {
+        gsap.to(modal, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.3,
+            ease: 'power2.out',
+            onComplete: () => modal.remove()
+        });
+    }
+}
+
+function closeFilterModal() {
+    const modal = document.querySelector('.filter-modal');
+    if (modal) {
+        gsap.to(modal, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.3,
+            ease: 'power2.out',
+            onComplete: () => modal.remove()
+        });
+    }
+}
+
+function applyFilters() {
+    // Filter logic would go here
+    showNotification('Filters applied successfully!', 'success');
+    closeFilterModal();
+}
+
+function loadAdditionalProjects() {
+    // This would load additional projects from an API or data source
+    const additionalProjects = [
+        {
+            name: 'Discord Bot',
+            description: 'Bot Discord với music player và moderation',
+            image: '🤖',
+            category: 'Node.js',
+            completion: 90
+        },
+        {
+            name: 'Portfolio Website',
+            description: 'Website portfolio với animations và 3D effects',
+            image: '🎨',
+            category: 'JavaScript',
+            completion: 100
+        }
+    ];
+
+    const projectsGrid = document.querySelector('.projects-grid-full');
+    if (projectsGrid) {
+        additionalProjects.forEach(project => {
+            const projectCard = document.createElement('div');
+            projectCard.className = 'project-card-mini';
+            projectCard.innerHTML = `
+                <div class="project-emoji">${project.image}</div>
+                <h4>${project.name}</h4>
+                <p>${project.description}</p>
+                <div class="completion-badge">${project.completion}%</div>
+            `;
+            projectsGrid.appendChild(projectCard);
+        });
+    }
+}
+
+function showAddSkillModal() {
+    const modal = document.createElement('div');
+    modal.className = 'skill-modal';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <h3>Add New Skill</h3>
+            <form id="addSkillForm">
+                <input type="text" placeholder="Skill Name" required>
+                <input type="number" placeholder="Current Level (0-100)" min="0" max="100" required>
+                <input type="number" placeholder="Target Level (0-100)" min="0" max="100" required>
+                <select required>
+                    <option value="">Select Category</option>
+                    <option value="Programming">Programming</option>
+                    <option value="Frontend">Frontend</option>
+                    <option value="Backend">Backend</option>
+                    <option value="Database">Database</option>
+                </select>
+                <div class="modal-actions">
+                    <button type="button" onclick="closeModal()">Cancel</button>
+                    <button type="submit">Add Skill</button>
+                </div>
+            </form>
+        </div>
+    `;
+
+    document.body.appendChild(modal);
+
+    // Animate modal
+    gsap.fromTo(modal, {
+        opacity: 0,
+        scale: 0.8
+    }, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.3,
+        ease: 'power2.out'
+    });
+}
+
+function closeModal() {
+    const modal = document.querySelector('.skill-modal');
+    if (modal) {
+        gsap.to(modal, {
+            opacity: 0,
+            scale: 0.8,
+            duration: 0.3,
+            ease: 'power2.out',
+            onComplete: () => modal.remove()
+        });
+    }
+}
+
+function exportSkillData() {
+    const data = {
+        exportDate: new Date().toISOString(),
+        skills: document.querySelectorAll('.progress-item').length,
+        message: 'Skill progress data exported successfully!'
+    };
+
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'skill-progress.json';
+    a.click();
+    URL.revokeObjectURL(url);
+
+    showNotification('Data exported successfully!', 'success');
+}
+
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.textContent = message;
+
+    document.body.appendChild(notification);
+
+    gsap.fromTo(notification, {
+        opacity: 0,
+        y: -50
+    }, {
+        opacity: 1,
+        y: 0,
+        duration: 0.3,
+        ease: 'power2.out'
+    });
+
+    setTimeout(() => {
+        gsap.to(notification, {
+            opacity: 0,
+            y: -50,
+            duration: 0.3,
+            ease: 'power2.out',
+            onComplete: () => notification.remove()
+        });
+    }, 3000);
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('vi-VN', {
+        month: 'short',
+        day: 'numeric'
     });
 }
 
