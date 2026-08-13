@@ -36,8 +36,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/TextPlugin.min.js"></script>
     <!-- Typed.js for typing effects -->
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-    <!-- Particles.js for background effects -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Three.js for 3D background effects -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <!-- Model Viewer for 3D Character -->
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 
 <body>
@@ -141,7 +143,7 @@
     <!-- Enhanced Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <div id="particles-js" class="particles-container"></div>
+            <canvas id="bg-3d" class="particles-container"></canvas>
             <div class="gradient-overlay"></div>
             <div class="floating-shapes">
                 <div class="shape shape-1"></div>
@@ -200,9 +202,9 @@
             </div>
             <div class="hero-visual">
                 <div class="hero-avatar">
-                    <div class="avatar-container">
-                        <div class="avatar-image">
-                            <img src="img/me2.jpg" alt="Đỗ Nho Tùng" class="avatar-photo">
+                    <div class="avatar-container parallax-container">
+                        <div class="avatar-image model-3d-container">
+                            <img src="img/avatar-3d.jpg" alt="3D Avatar" class="avatar-photo" id="parallax-avatar" onerror="this.src='img/me2.jpg'">
                         </div>
                         <div class="avatar-ring ring-1"></div>
                         <div class="avatar-ring ring-2"></div>

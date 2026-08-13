@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gsap.registerPlugin(ScrollTrigger, TextPlugin);
 
     // Initialize Particles.js
-    initParticlesJS();
+    initThreeJS();
 
     // Initialize Typed.js
     initTypingEffects();
@@ -175,6 +175,32 @@ function initHeroAnimations() {
         repeat: -1,
         yoyo: true
     });
+
+    // 3D Parallax Hover Effect
+    const parallaxContainer = document.querySelector('.parallax-container');
+    const modelContainer = document.querySelector('.model-3d-container');
+
+    if (parallaxContainer && modelContainer) {
+        parallaxContainer.addEventListener('mousemove', (e) => {
+            const rect = parallaxContainer.getBoundingClientRect();
+            const x = e.clientX - rect.left; // x position within the element
+            const y = e.clientY - rect.top;  // y position within the element
+            
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            const rotateX = ((y - centerY) / centerY) * -15; // Max 15 deg
+            const rotateY = ((x - centerX) / centerX) * 15;
+            
+            modelContainer.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.05)`;
+            modelContainer.style.transition = 'transform 0.1s ease';
+        });
+
+        parallaxContainer.addEventListener('mouseleave', () => {
+            modelContainer.style.transform = `rotateX(0deg) rotateY(0deg) scale(1)`;
+            modelContainer.style.transition = 'transform 0.5s ease';
+        });
+    }
 }
 
 // Typing Effects
@@ -206,87 +232,101 @@ function initTypingEffects() {
     });
 }
 
-// Particles.js Configuration
-function initParticlesJS() {
-    if (typeof particlesJS !== 'undefined') {
-        particlesJS('particles-js', {
-            particles: {
-                number: {
-                    value: 50,
-                    density: {
-                        enable: true,
-                        value_area: 800
-                    }
-                },
-                color: {
-                    value: ['#4b0082', '#800080', '#a100a1']
-                },
-                shape: {
-                    type: 'circle'
-                },
-                opacity: {
-                    value: 0.6,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 1,
-                        opacity_min: 0.1,
-                        sync: false
-                    }
-                },
-                size: {
-                    value: 3,
-                    random: true,
-                    anim: {
-                        enable: true,
-                        speed: 2,
-                        size_min: 0.1,
-                        sync: false
-                    }
-                },
-                line_linked: {
-                    enable: true,
-                    distance: 150,
-                    color: '#4b0082',
-                    opacity: 0.4,
-                    width: 1
-                },
-                move: {
-                    enable: true,
-                    speed: 1.5,
-                    direction: 'none',
-                    random: true,
-                    straight: false,
-                    out_mode: 'out',
-                    bounce: false
-                }
-            },
-            interactivity: {
-                detect_on: 'canvas',
-                events: {
-                    onhover: {
-                        enable: true,
-                        mode: 'repulse'
-                    },
-                    onclick: {
-                        enable: true,
-                        mode: 'push'
-                    },
-                    resize: true
-                },
-                modes: {
-                    repulse: {
-                        distance: 100,
-                        duration: 0.4
-                    },
-                    push: {
-                        particles_nb: 4
-                    }
-                }
-            },
-            retina_detect: true
-        });
+// Three.js Configuration
+function initThreeJS() {
+    const canvas = document.getElementById('bg-3d');
+    if (!canvas) return;
+
+    // Khởi tạo Scene, Camera, Renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    // Tạo các hạt 3D (Particles)
+    const particlesGeometry = new THREE.BufferGeometry();
+    const particlesCount = 2000;
+    
+    const posArray = new Float32Array(particlesCount * 3);
+    const colorsArray = new Float32Array(particlesCount * 3);
+    
+    const color1 = new THREE.Color('#4b0082'); // Tím đậm
+    const color2 = new THREE.Color('#a100a1'); // Tím sáng
+    const color3 = new THREE.Color('#ffffff'); // Trắng
+    
+    for(let i = 0; i < particlesCount * 3; i+=3) {
+        // Tọa độ ngẫu nhiên lan tỏa rộng
+        posArray[i] = (Math.random() - 0.5) * 20;
+        posArray[i+1] = (Math.random() - 0.5) * 20;
+        posArray[i+2] = (Math.random() - 0.5) * 20;
+        
+        // Màu ngẫu nhiên theo theme
+        const randomColor = Math.random();
+        let mixedColor;
+        if (randomColor < 0.33) mixedColor = color1;
+        else if (randomColor < 0.66) mixedColor = color2;
+        else mixedColor = color3;
+        
+        colorsArray[i] = mixedColor.r;
+        colorsArray[i+1] = mixedColor.g;
+        colorsArray[i+2] = mixedColor.b;
     }
+    
+    particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+    particlesGeometry.setAttribute('color', new THREE.BufferAttribute(colorsArray, 3));
+
+    // Material cho các hạt
+    const particlesMaterial = new THREE.PointsMaterial({
+        size: 0.05,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.8,
+        blending: THREE.AdditiveBlending
+    });
+
+    const particleMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+    scene.add(particleMesh);
+
+    camera.position.z = 5;
+
+    // Mouse Interaction
+    let mouseX = 0;
+    let mouseY = 0;
+    
+    document.addEventListener('mousemove', (event) => {
+        mouseX = (event.clientX / window.innerWidth) - 0.5;
+        mouseY = (event.clientY / window.innerHeight) - 0.5;
+    });
+
+    // Animation Loop
+    const clock = new THREE.Clock();
+
+    function animate() {
+        requestAnimationFrame(animate);
+        
+        const elapsedTime = clock.getElapsedTime();
+
+        // Xoay toàn bộ khối hạt từ từ
+        particleMesh.rotation.y = elapsedTime * 0.05;
+        particleMesh.rotation.x = elapsedTime * 0.02;
+
+        // Tương tác với chuột (Parallax effect)
+        particleMesh.rotation.y += mouseX * 0.1;
+        particleMesh.rotation.x += mouseY * 0.1;
+
+        renderer.render(scene, camera);
+    }
+    
+    animate();
+
+    // Resize Handler
+    window.addEventListener('resize', () => {
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+    });
 }
 
 // Scroll Animations
