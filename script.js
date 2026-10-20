@@ -219,13 +219,14 @@ function initTypingEffects() {
     // Subtitle typing effect
     const typedSubtitle = new Typed('#typed-subtitle', {
         strings: [
-            'Software Engineer & DevOps Engineer',
-
-
+            'Software Developer',
+            'Full-Stack & Mobile Developer',
+            'Building cool things :)',
+            'Tech, Code & Coffee ☕'
         ],
-        typeSpeed: 880,
-        backSpeed: 90,
-        backDelay: 3000,
+        typeSpeed: 60,
+        backSpeed: 40,
+        backDelay: 2000,
         loop: true,
         showCursor: true,
         cursorChar: '|'
@@ -327,6 +328,46 @@ function initThreeJS() {
         camera.updateProjectionMatrix();
         renderer.setSize(window.innerWidth, window.innerHeight);
     });
+
+    // Dynamic Theme Color Updater for Three.js Particles
+    function updateParticlesTheme(theme) {
+        let c1, c2, c3;
+        if (theme === 'theme-christmas') {
+            c1 = new THREE.Color('#ffffff'); // Pure Snow White
+            c2 = new THREE.Color('#70d6ff'); // Glacial Ice Cyan
+            c3 = new THREE.Color('#ffd166'); // Champagne Gold Starlight
+        } else if (theme === 'theme-halloween') {
+            c1 = new THREE.Color('#ff6a00'); // Neon Jack-O'-Lantern
+            c2 = new THREE.Color('#00ff87'); // Toxic Green
+            c3 = new THREE.Color('#9933ff'); // Violet Ghost
+        } else if (theme === 'theme-purple') {
+            c1 = new THREE.Color('#e94560'); // Crimson Neon
+            c2 = new THREE.Color('#533483'); // Deep Violet
+            c3 = new THREE.Color('#ffffff'); // Starlight White
+        } else {
+            c1 = new THREE.Color('#4b0082'); // Deep Purple
+            c2 = new THREE.Color('#a100a1'); // Bright Orchid
+            c3 = new THREE.Color('#ffffff'); // Pure White
+        }
+
+        const colors = particlesGeometry.attributes.color.array;
+        for (let i = 0; i < particlesCount * 3; i += 3) {
+            const rand = Math.random();
+            let col = rand < 0.35 ? c1 : (rand < 0.7 ? c2 : c3);
+            colors[i] = col.r;
+            colors[i + 1] = col.g;
+            colors[i + 2] = col.b;
+        }
+        particlesGeometry.attributes.color.needsUpdate = true;
+    }
+
+    window.updateThreeParticlesTheme = updateParticlesTheme;
+
+    // Apply active theme immediately if saved
+    const activeTheme = localStorage.getItem('theme') || document.body.className;
+    if (activeTheme) {
+        updateParticlesTheme(activeTheme);
+    }
 }
 
 // Scroll Animations
@@ -505,6 +546,44 @@ function initScrollAnimations() {
         });
     });
 
+    // GitHub Stats animations
+    const githubCards = document.querySelectorAll('.github-stat-card');
+    githubCards.forEach((card, index) => {
+        gsap.fromTo(card, {
+            opacity: 0,
+            y: 40
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            delay: index * 0.15,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+    });
+
+    const githubBanner = document.querySelector('.github-profile-banner');
+    if (githubBanner) {
+        gsap.fromTo(githubBanner, {
+            opacity: 0,
+            y: 40
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: 'power3.out',
+            scrollTrigger: {
+                trigger: githubBanner,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+            }
+        });
+    }
+
     // Contact section animations
     const contactInfo = document.querySelector('.contact-info');
     const contactForm = document.querySelector('.contact-form');
@@ -611,18 +690,28 @@ function initProjectFilters() {
                 const category = card.getAttribute('data-category');
 
                 if (filter === 'all' || category === filter) {
+                    card.style.display = 'block';
                     gsap.to(card, {
-                        duration: 0.5,
+                        duration: 0.4,
                         opacity: 1,
                         scale: 1,
+                        pointerEvents: 'auto',
                         ease: 'power3.out'
                     });
                 } else {
                     gsap.to(card, {
-                        duration: 0.5,
-                        opacity: 0.3,
+                        duration: 0.3,
+                        opacity: 0,
                         scale: 0.8,
-                        ease: 'power3.out'
+                        pointerEvents: 'none',
+                        ease: 'power3.in',
+                        onComplete: () => {
+                            const currentActive = document.querySelector('.filter-btn.active');
+                            const currentFilter = currentActive ? currentActive.getAttribute('data-filter') : 'all';
+                            if (currentFilter !== 'all' && card.getAttribute('data-category') !== currentFilter) {
+                                card.style.display = 'none';
+                            }
+                        }
                     });
                 }
             });
@@ -730,44 +819,93 @@ function showSuccessMessage(message) {
     }, 3000);
 }
 
-// Theme Toggle
+// Multi-Theme System (Standard, Cyber Purple Meteor, Modern Halloween, Modern Christmas)
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
 
-    // Check for saved theme
-    const savedTheme = localStorage.getItem('theme');
-    if (savedTheme) {
-        body.className = savedTheme;
-        updateThemeIcon(savedTheme);
+    function getCurrentTheme() {
+        if (body.classList.contains('theme-christmas')) return 'theme-christmas';
+        if (body.classList.contains('theme-halloween')) return 'theme-halloween';
+        if (body.classList.contains('theme-purple')) return 'theme-purple';
+        return '';
     }
 
-    themeToggle.addEventListener('click', () => {
-        const currentTheme = body.className;
-        const newTheme = currentTheme === 'theme-purple' ? '' : 'theme-purple';
+    function applyTheme(theme) {
+        body.classList.remove('theme-purple', 'theme-halloween', 'theme-christmas');
+        if (theme) {
+            body.classList.add(theme);
+        }
+        localStorage.setItem('theme', theme);
+        updateThemeIcon(theme);
+        toggleMeteorShower(theme);
+        toggleHalloweenAtmosphere(theme);
+        toggleChristmasAtmosphere(theme);
+        if (window.updateThreeParticlesTheme) {
+            window.updateThreeParticlesTheme(theme);
+        }
+    }
 
-        body.className = newTheme;
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
+    // Check for saved theme
+    const savedTheme = localStorage.getItem('theme') || '';
+    applyTheme(savedTheme);
 
-        // Toggle meteor shower effect
-        toggleMeteorShower(newTheme);
-    });
+    if (themeToggle) {
+        themeToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            const currentTheme = getCurrentTheme();
+            let newTheme = '';
+            if (currentTheme === '') {
+                newTheme = 'theme-purple';
+            } else if (currentTheme === 'theme-purple') {
+                newTheme = 'theme-halloween';
+            } else if (currentTheme === 'theme-halloween') {
+                newTheme = 'theme-christmas';
+            } else {
+                newTheme = '';
+            }
+            applyTheme(newTheme);
+        });
+    }
+
+    // Init interactive easter eggs
+    initHalloweenSpider();
+    initChristmasBauble();
 }
 
 // Update theme icon
 function updateThemeIcon(theme) {
     const icon = document.querySelector('#theme-toggle i');
-    if (theme === 'theme-purple') {
+    const toggleBtn = document.getElementById('theme-toggle');
+    if (!icon) return;
+
+    if (theme === 'theme-christmas') {
+        icon.className = 'fas fa-snowflake';
+        if (toggleBtn) {
+            toggleBtn.setAttribute('title', 'Theme: Giáng Sinh Hiện Đại ❄️ (Bấm để chuyển về Mặc định)');
+        }
+    } else if (theme === 'theme-halloween') {
+        icon.className = 'fas fa-ghost';
+        if (toggleBtn) {
+            toggleBtn.setAttribute('title', 'Theme: Halloween Hiện Đại 👻 (Bấm để chuyển sang Giáng Sinh)');
+        }
+    } else if (theme === 'theme-purple') {
         icon.className = 'fas fa-meteor';
+        if (toggleBtn) {
+            toggleBtn.setAttribute('title', 'Theme: Tím Sao Băng ☄️ (Bấm để chuyển sang Halloween)');
+        }
     } else {
         icon.className = 'fas fa-moon';
+        if (toggleBtn) {
+            toggleBtn.setAttribute('title', 'Theme: Mặc định 🌙 (Bấm để chuyển sang Tím Sao Băng)');
+        }
     }
 }
 
 // Toggle meteor shower effect
 function toggleMeteorShower(theme) {
     const meteorShower = document.getElementById('meteor-shower');
+    if (!meteorShower) return;
     if (theme === 'theme-purple') {
         meteorShower.style.opacity = '1';
         // Add more meteors dynamically
@@ -780,6 +918,7 @@ function toggleMeteorShower(theme) {
 // Add more meteors dynamically
 function addMoreMeteors() {
     const meteorShower = document.getElementById('meteor-shower');
+    if (!meteorShower) return;
 
     // Clear existing meteors
     meteorShower.innerHTML = '';
@@ -793,6 +932,180 @@ function addMoreMeteors() {
         meteor.style.animationDelay = Math.random() * 12 + 's';
         meteor.style.animationDuration = (2 + Math.random() * 2) + 's';
         meteorShower.appendChild(meteor);
+    }
+}
+
+// Toggle Halloween atmosphere effects
+function toggleHalloweenAtmosphere(theme) {
+    const atmosphere = document.getElementById('halloween-atmosphere');
+    const spider = document.getElementById('halloween-spider');
+    const isHalloween = theme === 'theme-halloween';
+
+    if (atmosphere) {
+        if (isHalloween) {
+            atmosphere.style.display = 'block';
+            addHalloweenEmbers();
+        } else {
+            atmosphere.style.display = 'none';
+        }
+    }
+
+    if (spider) {
+        spider.style.display = isHalloween ? 'block' : 'none';
+    }
+}
+
+// Add dynamic floating will-o'-the-wisp embers for Halloween
+function addHalloweenEmbers() {
+    const container = document.getElementById('halloween-embers-container');
+    if (!container) return;
+
+    // Clear existing embers to prevent duplication
+    container.innerHTML = '';
+
+    const emberColors = [
+        'radial-gradient(circle, #ff6a00 0%, #ff8800 60%, transparent 100%)',
+        'radial-gradient(circle, #00ff87 0%, #10b981 60%, transparent 100%)',
+        'radial-gradient(circle, #ff9900 0%, #ff3b00 70%, transparent 100%)',
+        'radial-gradient(circle, #a855f7 0%, #7928ca 70%, transparent 100%)'
+    ];
+
+    const emberShadows = [
+        '0 0 10px #ff6a00, 0 0 20px #ff8800',
+        '0 0 10px #00ff87, 0 0 20px #10b981',
+        '0 0 12px #ff9900, 0 0 22px #ff3b00',
+        '0 0 10px #a855f7, 0 0 20px #7928ca'
+    ];
+
+    for (let i = 0; i < 24; i++) {
+        const ember = document.createElement('div');
+        ember.className = 'halloween-ember';
+        const colorIdx = i % emberColors.length;
+        const size = (3 + Math.random() * 5) + 'px';
+
+        ember.style.width = size;
+        ember.style.height = size;
+        ember.style.background = emberColors[colorIdx];
+        ember.style.boxShadow = emberShadows[colorIdx];
+        ember.style.left = (Math.random() * 98) + '%';
+        ember.style.animationDelay = (Math.random() * 12) + 's';
+        ember.style.animationDuration = (7 + Math.random() * 8) + 's';
+
+        container.appendChild(ember);
+    }
+}
+
+// Dangling Spider Interactive Easter Egg
+function initHalloweenSpider() {
+    const spider = document.getElementById('halloween-spider');
+    if (!spider) return;
+
+    spider.addEventListener('click', () => {
+        const spiderBody = spider.querySelector('.spider-body');
+        if (spiderBody) {
+            spiderBody.style.transform = 'scale(1.5) rotate(360deg)';
+            spiderBody.style.color = '#00ff87';
+            setTimeout(() => {
+                spiderBody.style.transform = '';
+                spiderBody.style.color = '';
+            }, 600);
+        }
+    });
+}
+
+// Toggle Christmas atmosphere effects
+function toggleChristmasAtmosphere(theme) {
+    const atmosphere = document.getElementById('christmas-atmosphere');
+    const bauble = document.getElementById('christmas-bauble');
+    const fairyLights = document.getElementById('fairy-lights');
+    const isChristmas = theme === 'theme-christmas';
+
+    if (atmosphere) {
+        if (isChristmas) {
+            atmosphere.style.display = 'block';
+            addSnowflakes();
+        } else {
+            atmosphere.style.display = 'none';
+        }
+    }
+
+    if (bauble) {
+        bauble.style.display = isChristmas ? 'block' : 'none';
+    }
+
+    if (fairyLights) {
+        fairyLights.style.display = isChristmas ? 'flex' : 'none';
+    }
+}
+
+// Add dynamic realistic snowflakes
+function addSnowflakes() {
+    const container = document.getElementById('snowflakes-container');
+    if (!container) return;
+
+    // Clear existing snowflakes
+    container.innerHTML = '';
+
+    const snowflakeSymbols = ['❄', '❅', '❆', '•', '✦'];
+    const totalFlakes = 40;
+
+    for (let i = 0; i < totalFlakes; i++) {
+        const flake = document.createElement('div');
+        flake.className = 'snowflake';
+        flake.textContent = snowflakeSymbols[i % snowflakeSymbols.length];
+
+        const size = (0.7 + Math.random() * 1.3) + 'rem';
+        const opacity = (0.35 + Math.random() * 0.65);
+        const left = (Math.random() * 99) + '%';
+        const duration = (6 + Math.random() * 8) + 's';
+        const delay = (Math.random() * 10) + 's';
+
+        flake.style.fontSize = size;
+        flake.style.opacity = opacity;
+        flake.style.left = left;
+        flake.style.animationDuration = duration;
+        flake.style.animationDelay = delay;
+
+        container.appendChild(flake);
+    }
+}
+
+// Interactive Christmas Bauble Easter Egg
+function initChristmasBauble() {
+    const bauble = document.getElementById('christmas-bauble');
+    if (!bauble) return;
+
+    bauble.addEventListener('click', () => {
+        const ornament = bauble.querySelector('.bauble-ornament');
+        if (ornament) {
+            ornament.style.transform = 'scale(1.5) rotate(360deg)';
+            createStardustBurst(bauble);
+            setTimeout(() => {
+                ornament.style.transform = '';
+            }, 600);
+        }
+    });
+}
+
+// Stardust Burst Particle Effect
+function createStardustBurst(targetEl) {
+    const count = 14;
+
+    for (let i = 0; i < count; i++) {
+        const star = document.createElement('div');
+        star.className = 'stardust-burst';
+        const angle = (i / count) * 2 * Math.PI;
+        const distance = 35 + Math.random() * 35;
+        const dx = Math.cos(angle) * distance + 'px';
+        const dy = Math.sin(angle) * distance + 'px';
+
+        star.style.setProperty('--dx', dx);
+        star.style.setProperty('--dy', dy);
+        targetEl.appendChild(star);
+
+        setTimeout(() => {
+            star.remove();
+        }, 700);
     }
 }
 

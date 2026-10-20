@@ -39,6 +39,38 @@
     --shadow-purple-hover: 0 20px 40px rgba(233, 69, 96, 0.5);
 }
 
+body.theme-halloween,
+.theme-halloween {
+    --primary-black: #090610;
+    --secondary-black: #140d21;
+    --accent-purple: #ff6a00;
+    --accent-purple-light: #ff8800;
+    --accent-purple-bright: #00ff87;
+    --text-white: #ffffff;
+    --text-gray: #cfc2df;
+    --text-light: #f5f0ff;
+    --gradient-purple: linear-gradient(135deg, #ff6a00 0%, #8a2be2 50%, #00ff87 100%);
+    --gradient-dark: linear-gradient(135deg, #090610 0%, #170e28 100%);
+    --shadow-purple: 0 10px 30px rgba(255, 106, 0, 0.32);
+    --shadow-purple-hover: 0 20px 45px rgba(255, 106, 0, 0.65);
+}
+
+body.theme-christmas,
+.theme-christmas {
+    --primary-black: #060d1a;
+    --secondary-black: #0c192e;
+    --accent-purple: #ff2a5f;
+    --accent-purple-light: #ffd166;
+    --accent-purple-bright: #00e676;
+    --text-white: #ffffff;
+    --text-gray: #c5d9ed;
+    --text-light: #f0f7ff;
+    --gradient-purple: linear-gradient(135deg, #ff2a5f 0%, #ffd166 48%, #00e676 100%);
+    --gradient-dark: linear-gradient(135deg, #060d1a 0%, #0e1e36 100%);
+    --shadow-purple: 0 10px 30px rgba(255, 42, 95, 0.3);
+    --shadow-purple-hover: 0 20px 45px rgba(255, 42, 95, 0.6);
+}
+
 /* Purple Meteor Shower Effect */
 .meteor-shower {
     position: fixed;
@@ -180,6 +212,797 @@
 .theme-purple .floating-shapes .shape {
     background: rgba(233, 69, 96, 0.1);
     border: 1px solid rgba(233, 69, 96, 0.3);
+}
+
+/* ===================================================
+   🎃 MODERN HALLOWEEN THEME (CYBER SPOOKY CHIC)
+   =================================================== */
+.theme-halloween {
+    --primary-black: #090610;
+    --secondary-black: #140d21;
+    --accent-purple: #ff6a00;
+    --accent-purple-light: #ff8800;
+    --accent-purple-bright: #00ff87;
+    --text-white: #ffffff;
+    --text-gray: #cfc2df;
+    --text-light: #f5f0ff;
+    --gradient-purple: linear-gradient(135deg, #ff6a00 0%, #8a2be2 50%, #00ff87 100%);
+    --gradient-dark: linear-gradient(135deg, #090610 0%, #170e28 100%);
+    --shadow-purple: 0 10px 30px rgba(255, 106, 0, 0.32);
+    --shadow-purple-hover: 0 20px 45px rgba(255, 106, 0, 0.65);
+    
+    /* Specific Halloween Tokens */
+    --pumpkin-orange: #ff6a00;
+    --pumpkin-amber: #ff8800;
+    --toxic-green: #00ff87;
+    --spectral-purple: #8a2be2;
+    --abyss-deep: #090610;
+}
+
+.theme-halloween .hero-background {
+    background: radial-gradient(circle at 50% 25%, #231038 0%, #090610 75%);
+}
+
+.theme-halloween .particles-container {
+    background: radial-gradient(circle at center, rgba(255, 106, 0, 0.14) 0%, rgba(0, 255, 135, 0.05) 50%, transparent 75%);
+}
+
+.theme-halloween .floating-shapes .shape {
+    background: rgba(255, 106, 0, 0.1);
+    border: 1px solid rgba(255, 106, 0, 0.35);
+    box-shadow: 0 0 25px rgba(255, 106, 0, 0.25);
+}
+
+.theme-halloween .theme-toggle-btn {
+    background: rgba(255, 106, 0, 0.22);
+    border-color: rgba(255, 106, 0, 0.6);
+    box-shadow: 0 0 18px rgba(255, 106, 0, 0.5);
+    color: #ff9d00;
+}
+
+.theme-halloween .theme-toggle-btn:hover {
+    background: rgba(255, 106, 0, 0.4);
+    box-shadow: 0 0 30px rgba(255, 106, 0, 0.8), 0 0 15px rgba(0, 255, 135, 0.4);
+    transform: scale(1.15) rotate(10deg);
+}
+
+/* Subtle Horror Neon Flicker on Hero Title in Halloween Mode */
+.theme-halloween .hero-title {
+    animation: halloween-neon-pulse 4.5s ease-in-out infinite;
+}
+
+@keyframes halloween-neon-pulse {
+    0%, 100% {
+        text-shadow: 0 0 12px rgba(255, 106, 0, 0.3);
+    }
+    48% {
+        text-shadow: 0 0 12px rgba(255, 106, 0, 0.3);
+    }
+    50% {
+        text-shadow: 0 0 28px rgba(255, 106, 0, 0.85), 0 0 45px rgba(0, 255, 135, 0.5);
+    }
+    52% {
+        text-shadow: 0 0 6px rgba(255, 106, 0, 0.2);
+    }
+    54% {
+        text-shadow: 0 0 32px rgba(255, 106, 0, 0.95), 0 0 55px rgba(255, 136, 0, 0.6);
+    }
+}
+
+/* Cards & Containers in Halloween Theme */
+.theme-halloween .project-card,
+.theme-halloween .project-card-3d,
+.theme-halloween .skill-card,
+.theme-halloween .experience-card,
+.theme-halloween .education-card,
+.theme-halloween .stats-card,
+.theme-halloween .contact-form-container,
+.theme-halloween .contact-info-card {
+    border: 1px solid rgba(255, 106, 0, 0.22);
+    background: rgba(19, 12, 30, 0.72);
+    backdrop-filter: blur(14px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-halloween .project-card:hover,
+.theme-halloween .project-card-3d:hover,
+.theme-halloween .skill-card:hover,
+.theme-halloween .experience-card:hover,
+.theme-halloween .education-card:hover,
+.theme-halloween .stats-card:hover {
+    border-color: rgba(255, 106, 0, 0.8);
+    box-shadow: 0 15px 40px rgba(255, 106, 0, 0.35), 0 0 25px rgba(0, 255, 135, 0.25);
+    transform: translateY(-8px) scale(1.015);
+}
+
+.theme-halloween .nav-container {
+    background: rgba(9, 6, 16, 0.88);
+    border-bottom: 1px solid rgba(255, 106, 0, 0.3);
+    box-shadow: 0 4px 25px rgba(255, 106, 0, 0.15);
+}
+
+.theme-halloween .nav-link:hover,
+.theme-halloween .nav-link.active {
+    color: #ff6a00;
+}
+
+.theme-halloween .nav-indicator {
+    background: #ff6a00;
+    box-shadow: 0 0 10px #ff6a00;
+}
+
+.theme-halloween .cv-download-btn {
+    border-color: rgba(0, 255, 135, 0.6);
+    box-shadow: 0 0 15px rgba(0, 255, 135, 0.25);
+}
+
+.theme-halloween .cv-download-btn:hover {
+    border-color: #00ff87;
+    background: rgba(0, 255, 135, 0.15);
+    box-shadow: 0 0 25px rgba(0, 255, 135, 0.5);
+    color: #00ff87;
+}
+
+.theme-halloween .section-title {
+    background: linear-gradient(135deg, #ffffff 30%, #ff6a00 80%, #00ff87 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.theme-halloween .timeline-dot {
+    background: #ff6a00;
+    box-shadow: 0 0 15px #ff6a00;
+}
+
+.theme-halloween .timeline-line {
+    background: linear-gradient(to bottom, #ff6a00, #8a2be2, #00ff87);
+}
+
+/* ===================================================
+   🎃 HALLOWEEN ATMOSPHERE (BATS, EMBERS, MIST, SPIDER)
+   =================================================== */
+.halloween-atmosphere {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    overflow: hidden;
+}
+
+.theme-halloween .halloween-atmosphere {
+    opacity: 1;
+}
+
+/* Flying Cyber Bats */
+.halloween-bat {
+    position: absolute;
+    width: 44px;
+    height: 28px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    filter: drop-shadow(0 0 8px rgba(255, 106, 0, 0.8));
+}
+
+.halloween-bat svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.bat-body-shape {
+    fill: #ff6a00;
+}
+
+.bat-wing {
+    fill: #ff8800;
+    transform-origin: 50% 50%;
+    animation: bat-flap 0.22s ease-in-out infinite alternate;
+}
+
+.bat-wing-r {
+    animation-direction: alternate-reverse;
+}
+
+@keyframes bat-flap {
+    0% { transform: scaleY(1) rotate(0deg); }
+    100% { transform: scaleY(0.35) rotate(20deg); }
+}
+
+.bat-1 {
+    top: 15%;
+    animation: bat-flight-across-1 16s linear infinite;
+    animation-delay: 1s;
+}
+
+.bat-2 {
+    top: 32%;
+    animation: bat-flight-across-2 22s linear infinite;
+    animation-delay: 5s;
+}
+
+.bat-3 {
+    top: 55%;
+    animation: bat-flight-across-1 18s linear infinite;
+    animation-delay: 9s;
+}
+
+.bat-4 {
+    top: 72%;
+    animation: bat-flight-across-2 24s linear infinite;
+    animation-delay: 13s;
+}
+
+@keyframes bat-flight-across-1 {
+    0% {
+        left: -80px;
+        opacity: 0;
+        transform: translateY(0) rotate(6deg) scale(0.9);
+    }
+    10% {
+        opacity: 0.85;
+    }
+    30% {
+        transform: translateY(-40px) rotate(-10deg) scale(0.95);
+    }
+    55% {
+        transform: translateY(30px) rotate(8deg) scale(0.85);
+    }
+    80% {
+        transform: translateY(-25px) rotate(-6deg) scale(0.9);
+    }
+    90% {
+        opacity: 0.85;
+    }
+    100% {
+        left: calc(100% + 80px);
+        opacity: 0;
+        transform: translateY(15px) rotate(4deg) scale(0.9);
+    }
+}
+
+@keyframes bat-flight-across-2 {
+    0% {
+        right: -80px;
+        left: auto;
+        opacity: 0;
+        transform: translateY(0) rotate(-6deg) scaleX(-1) scale(0.8);
+    }
+    12% {
+        opacity: 0.8;
+    }
+    35% {
+        transform: translateY(45px) rotate(12deg) scaleX(-1) scale(0.85);
+    }
+    65% {
+        transform: translateY(-30px) rotate(-10deg) scaleX(-1) scale(0.8);
+    }
+    88% {
+        opacity: 0.8;
+    }
+    100% {
+        right: calc(100% + 80px);
+        left: auto;
+        opacity: 0;
+        transform: translateY(20px) rotate(-4deg) scaleX(-1) scale(0.8);
+    }
+}
+
+/* Will-o'-the-Wisp Floating Embers */
+.halloween-ember {
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: ember-drift-up linear infinite;
+}
+
+@keyframes ember-drift-up {
+    0% {
+        transform: translateY(105vh) translateX(0) scale(0.5);
+        opacity: 0;
+    }
+    15% {
+        opacity: 0.85;
+    }
+    50% {
+        transform: translateY(50vh) translateX(35px) scale(1.1);
+        opacity: 0.65;
+    }
+    85% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-40px) translateX(-25px) scale(0.3);
+        opacity: 0;
+    }
+}
+
+/* Spectral Mist / Fog at Page Bottom */
+.halloween-mist {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 180px;
+    background: radial-gradient(ellipse at 50% 100%, rgba(138, 43, 226, 0.16) 0%, rgba(255, 106, 0, 0.08) 40%, transparent 70%);
+    pointer-events: none;
+    animation: mist-flow 26s ease-in-out infinite alternate;
+}
+
+.halloween-mist.mist-layer-2 {
+    bottom: -15px;
+    height: 140px;
+    background: radial-gradient(ellipse at 30% 100%, rgba(0, 255, 135, 0.12) 0%, rgba(255, 106, 0, 0.06) 50%, transparent 70%);
+    animation: mist-flow 34s ease-in-out infinite alternate-reverse;
+}
+
+@keyframes mist-flow {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-30%);
+    }
+}
+
+/* Dangling Cyber Spider in Corner */
+.halloween-spider-corner {
+    position: fixed;
+    top: 0;
+    right: 45px;
+    z-index: 1002;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(-70px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-halloween .halloween-spider-corner {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.spider-thread {
+    width: 1px;
+    height: 70px;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 106, 0, 0.7));
+    margin: 0 auto;
+    transition: height 0.35s ease;
+}
+
+.spider-body {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ff6a00;
+    font-size: 1.3rem;
+    filter: drop-shadow(0 0 8px #ff6a00);
+    animation: spider-rocking 3.2s ease-in-out infinite alternate;
+    transform-origin: top center;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.halloween-spider-corner:hover .spider-thread {
+    height: 25px;
+}
+
+.halloween-spider-corner:hover .spider-body {
+    transform: scale(1.3) rotate(20deg);
+    color: #00ff87;
+    filter: drop-shadow(0 0 12px #00ff87);
+}
+
+@keyframes spider-rocking {
+    0% { transform: rotate(-10deg); }
+    100% { transform: rotate(10deg); }
+}
+
+/* Web corner decoration */
+.halloween-web-deco {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 110px;
+    height: 110px;
+    pointer-events: none;
+    z-index: 1001;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.theme-halloween .halloween-web-deco {
+    opacity: 0.35;
+}
+
+/* ===================================================
+   🎄 MODERN MERRY CHRISTMAS THEME (CYBER WINTER FROST)
+   =================================================== */
+.theme-christmas {
+    --primary-black: #060d1a;
+    --secondary-black: #0c192e;
+    --accent-purple: #ff2a5f;
+    --accent-purple-light: #ffd166;
+    --accent-purple-bright: #00e676;
+    --text-white: #ffffff;
+    --text-gray: #c5d9ed;
+    --text-light: #f0f7ff;
+    --gradient-purple: linear-gradient(135deg, #ff2a5f 0%, #ffd166 48%, #00e676 100%);
+    --gradient-dark: linear-gradient(135deg, #060d1a 0%, #0e1e36 100%);
+    --shadow-purple: 0 10px 30px rgba(255, 42, 95, 0.3);
+    --shadow-purple-hover: 0 20px 45px rgba(255, 42, 95, 0.6);
+}
+
+.theme-christmas .hero-background {
+    background: radial-gradient(circle at 50% 20%, #102542 0%, #060d1a 80%);
+}
+
+.theme-christmas .particles-container {
+    background: radial-gradient(circle at center, rgba(112, 214, 255, 0.14) 0%, rgba(0, 230, 118, 0.05) 50%, transparent 75%);
+}
+
+.theme-christmas .floating-shapes .shape {
+    background: rgba(112, 214, 255, 0.08);
+    border: 1px solid rgba(255, 209, 102, 0.35);
+    box-shadow: 0 0 25px rgba(112, 214, 255, 0.2);
+}
+
+.theme-christmas .theme-toggle-btn {
+    background: rgba(112, 214, 255, 0.18);
+    border-color: rgba(112, 214, 255, 0.6);
+    box-shadow: 0 0 18px rgba(112, 214, 255, 0.45);
+    color: #70d6ff;
+}
+
+.theme-christmas .theme-toggle-btn:hover {
+    background: rgba(112, 214, 255, 0.35);
+    box-shadow: 0 0 30px rgba(112, 214, 255, 0.8), 0 0 15px rgba(255, 209, 102, 0.5);
+    transform: scale(1.15) rotate(15deg);
+}
+
+/* Hero Title Christmas Starlight Glow */
+.theme-christmas .hero-title {
+    animation: christmas-star-shimmer 4s ease-in-out infinite;
+}
+
+@keyframes christmas-star-shimmer {
+    0%, 100% {
+        text-shadow: 0 0 15px rgba(112, 214, 255, 0.4);
+    }
+    50% {
+        text-shadow: 0 0 25px rgba(255, 42, 95, 0.8), 0 0 45px rgba(255, 209, 102, 0.6);
+    }
+}
+
+/* Frosted Ice Cards in Christmas Theme */
+.theme-christmas .project-card,
+.theme-christmas .project-card-3d,
+.theme-christmas .skill-card,
+.theme-christmas .experience-card,
+.theme-christmas .education-card,
+.theme-christmas .stats-card,
+.theme-christmas .contact-form-container,
+.theme-christmas .contact-info-card {
+    border: 1px solid rgba(112, 214, 255, 0.22);
+    background: rgba(12, 25, 46, 0.72);
+    backdrop-filter: blur(14px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.theme-christmas .project-card:hover,
+.theme-christmas .project-card-3d:hover,
+.theme-christmas .skill-card:hover,
+.theme-christmas .experience-card:hover,
+.theme-christmas .education-card:hover,
+.theme-christmas .stats-card:hover {
+    border-color: rgba(255, 209, 102, 0.85);
+    box-shadow: 0 15px 40px rgba(255, 42, 95, 0.35), 0 0 25px rgba(0, 230, 118, 0.25);
+    transform: translateY(-8px) scale(1.015);
+}
+
+.theme-christmas .nav-container {
+    background: rgba(6, 13, 26, 0.88);
+    border-bottom: 1px solid rgba(112, 214, 255, 0.25);
+    box-shadow: 0 4px 25px rgba(0, 230, 118, 0.12);
+}
+
+.theme-christmas .nav-link:hover,
+.theme-christmas .nav-link.active {
+    color: #ff2a5f;
+}
+
+.theme-christmas .nav-indicator {
+    background: #ff2a5f;
+    box-shadow: 0 0 10px #ff2a5f;
+}
+
+.theme-christmas .cv-download-btn {
+    border-color: rgba(255, 209, 102, 0.65);
+    box-shadow: 0 0 15px rgba(255, 209, 102, 0.3);
+}
+
+.theme-christmas .cv-download-btn:hover {
+    border-color: #ffd166;
+    background: rgba(255, 209, 102, 0.18);
+    box-shadow: 0 0 25px rgba(255, 209, 102, 0.6);
+    color: #ffd166;
+}
+
+.theme-christmas .section-title {
+    background: linear-gradient(135deg, #ffffff 25%, #ff2a5f 70%, #ffd166 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.theme-christmas .timeline-dot {
+    background: #ff2a5f;
+    box-shadow: 0 0 15px #ff2a5f;
+}
+
+.theme-christmas .timeline-line {
+    background: linear-gradient(to bottom, #ff2a5f, #ffd166, #00e676);
+}
+
+/* ===================================================
+   🎄 CHRISTMAS ATMOSPHERE (SNOW, AURORA, FAIRY LIGHTS, SLEIGH, BAUBLE)
+   =================================================== */
+.christmas-atmosphere {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+    overflow: hidden;
+}
+
+.theme-christmas .christmas-atmosphere {
+    opacity: 1;
+}
+
+/* Aurora Borealis Glow in upper viewport */
+.aurora-borealis {
+    position: absolute;
+    top: 0;
+    left: -20%;
+    width: 140%;
+    height: 380px;
+    background: radial-gradient(ellipse at 30% 0%, rgba(0, 230, 118, 0.16) 0%, rgba(112, 214, 255, 0.12) 40%, transparent 70%),
+                radial-gradient(ellipse at 70% 0%, rgba(255, 42, 95, 0.12) 0%, rgba(255, 209, 102, 0.08) 45%, transparent 70%);
+    filter: blur(40px);
+    animation: aurora-flow 18s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes aurora-flow {
+    0% {
+        transform: translateY(0) scaleX(1);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-25px) scaleX(1.08);
+        opacity: 0.95;
+    }
+    100% {
+        transform: translateY(15px) scaleX(0.96);
+        opacity: 0.75;
+    }
+}
+
+/* Fairy Lights Garland along Navbar */
+.fairy-lights-garland {
+    position: fixed;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    display: flex;
+    justify-content: space-around;
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+}
+
+.theme-christmas .fairy-lights-garland {
+    opacity: 1;
+}
+
+.fairy-light {
+    width: 6px;
+    height: 9px;
+    border-radius: 50% 50% 40% 40%;
+    animation: light-twinkle 1.8s ease-in-out infinite alternate;
+}
+
+.fairy-light:nth-child(4n+1) {
+    background: #ff2a5f;
+    box-shadow: 0 0 10px #ff2a5f, 0 0 20px #ff2a5f;
+    animation-delay: 0s;
+}
+.fairy-light:nth-child(4n+2) {
+    background: #00e676;
+    box-shadow: 0 0 10px #00e676, 0 0 20px #00e676;
+    animation-delay: 0.45s;
+}
+.fairy-light:nth-child(4n+3) {
+    background: #ffd166;
+    box-shadow: 0 0 10px #ffd166, 0 0 20px #ffd166;
+    animation-delay: 0.9s;
+}
+.fairy-light:nth-child(4n+4) {
+    background: #70d6ff;
+    box-shadow: 0 0 10px #70d6ff, 0 0 20px #70d6ff;
+    animation-delay: 1.35s;
+}
+
+@keyframes light-twinkle {
+    0% { opacity: 0.35; transform: scale(0.85); }
+    100% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Santa Sleigh & Reindeer Flying Silhouette */
+.santa-sleigh-sky {
+    position: absolute;
+    top: 14%;
+    left: -180px;
+    width: 120px;
+    height: 40px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 2;
+    animation: santa-flight 36s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    animation-delay: 8s;
+}
+
+.santa-sleigh-sky svg {
+    width: 100%;
+    height: 100%;
+    fill: #ffd166;
+    filter: drop-shadow(0 0 10px rgba(255, 209, 102, 0.8));
+}
+
+@keyframes santa-flight {
+    0% {
+        left: -180px;
+        opacity: 0;
+        transform: translateY(0) scale(0.8);
+    }
+    10% {
+        opacity: 0.85;
+    }
+    45% {
+        transform: translateY(-35px) scale(0.9);
+    }
+    85% {
+        opacity: 0.85;
+    }
+    100% {
+        left: calc(100% + 180px);
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+}
+
+/* Realistic Multi-depth Snowflakes */
+.snowflake {
+    position: absolute;
+    top: -30px;
+    color: #ffffff;
+    user-select: none;
+    pointer-events: none;
+    animation: snowflake-fall linear infinite;
+    filter: drop-shadow(0 0 5px rgba(112, 214, 255, 0.6));
+}
+
+@keyframes snowflake-fall {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.9;
+    }
+    90% {
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(105vh) translateX(45px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Dangling Interactive Christmas Bauble in Corner */
+.christmas-bauble-corner {
+    position: fixed;
+    top: 0;
+    right: 48px;
+    z-index: 1002;
+    pointer-events: auto;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(-70px);
+    transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.theme-christmas .christmas-bauble-corner {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.bauble-ribbon {
+    width: 2px;
+    height: 65px;
+    background: linear-gradient(to bottom, #ffd166, #ff2a5f);
+    margin: 0 auto;
+    transition: height 0.35s ease;
+}
+
+.bauble-ornament {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ff5c8a 0%, #ff2a5f 55%, #a70030 100%);
+    box-shadow: 0 0 15px rgba(255, 42, 95, 0.7), inset 0 0 8px rgba(255, 209, 102, 0.6);
+    border: 1px solid rgba(255, 209, 102, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffd166;
+    font-size: 1rem;
+    animation: bauble-sway 3.4s ease-in-out infinite alternate;
+    transform-origin: top center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.christmas-bauble-corner:hover .bauble-ribbon {
+    height: 25px;
+}
+
+.christmas-bauble-corner:hover .bauble-ornament {
+    transform: scale(1.3) rotate(25deg);
+    box-shadow: 0 0 25px rgba(255, 42, 95, 0.9), 0 0 15px rgba(0, 230, 118, 0.6);
+    color: #ffffff;
+}
+
+@keyframes bauble-sway {
+    0% { transform: rotate(-9deg); }
+    100% { transform: rotate(9deg); }
+}
+
+/* Stardust Sparkle container */
+.stardust-burst {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #ffd166;
+    box-shadow: 0 0 12px #ffd166;
+    pointer-events: none;
+    animation: stardust-explode 0.6s ease-out forwards;
+}
+
+@keyframes stardust-explode {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translate(var(--dx), var(--dy)) scale(0);
+        opacity: 0;
+    }
 }
 
 html {
@@ -2968,3 +3791,187 @@ section {
         margin: 20px;
     }
 }
+
+/* =========================================
+   GitHub Live Stats Section
+   ========================================= */
+.github-stats-section {
+    padding: 100px 0;
+    background: var(--primary-black);
+    position: relative;
+    overflow: hidden;
+}
+
+.github-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.github-stat-card {
+    background: var(--secondary-black);
+    border-radius: 20px;
+    padding: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-purple);
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.github-stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--gradient-purple);
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.github-stat-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-purple-hover);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.github-stat-card:hover::before {
+    opacity: 1;
+}
+
+.stat-card-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    width: 100%;
+    justify-content: center;
+}
+
+.stat-card-header i {
+    font-size: 1.5rem;
+    color: var(--accent-purple-bright);
+}
+
+.stat-card-header h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--text-white);
+}
+
+.stat-card-body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+}
+
+.github-stat-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.35));
+    transition: transform 0.3s ease;
+}
+
+.github-stat-card:hover .github-stat-img {
+    transform: scale(1.02);
+}
+
+.github-streak-card {
+    grid-column: 1 / -1;
+}
+
+@media (min-width: 992px) {
+    .github-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    .github-streak-card {
+        grid-column: span 2;
+    }
+}
+
+/* GitHub Profile Banner */
+.github-profile-banner {
+    margin-top: 50px;
+    background: linear-gradient(135deg, rgba(75, 0, 130, 0.15) 0%, rgba(20, 20, 30, 0.7) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 24px;
+    padding: 30px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 24px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+}
+
+.github-profile-banner:hover {
+    border-color: var(--accent-purple);
+    box-shadow: var(--shadow-purple);
+}
+
+.banner-content {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.banner-avatar {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--accent-purple);
+    box-shadow: 0 0 15px rgba(128, 0, 128, 0.4);
+    flex-shrink: 0;
+}
+
+.banner-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.banner-text h4 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-white);
+    margin-bottom: 6px;
+}
+
+.banner-text p {
+    color: var(--text-gray);
+    font-size: 0.95rem;
+    font-family: monospace;
+}
+
+.banner-action .btn {
+    white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+    .github-profile-banner {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px;
+    }
+
+    .banner-content {
+        flex-direction: column;
+    }
+
+    .banner-action, .banner-action .btn {
+        width: 100%;
+    }
+}
