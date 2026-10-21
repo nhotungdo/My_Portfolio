@@ -176,6 +176,109 @@
         </div>
     </div>
 
+    <!-- Modern Mid-Autumn Atmosphere Effect -->
+    <div class="midautumn-atmosphere" id="midautumn-atmosphere" aria-hidden="true">
+        <!-- Giant Glowing Harvest Moon with Moon Halo Rings -->
+        <div class="harvest-moon-sky">
+            <div class="moon-halo-ring halo-ring-1"></div>
+            <div class="moon-halo-ring halo-ring-2"></div>
+            <div class="moon-halo-ring halo-ring-3"></div>
+            <div class="harvest-moon-body">
+                <div class="moon-crater crater-1"></div>
+                <div class="moon-crater crater-2"></div>
+                <div class="moon-crater crater-3"></div>
+                <div class="moon-rabbit-silhouette">
+                    <svg viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Stylized Jade Rabbit on the Moon -->
+                        <path d="M18 10 C16 4 13 4 14 10 C15 13 17 15 17 17 C15 17 12 19 12 23 C12 27 15 30 20 30 C24 30 27 28 28 25 C29 25 31 26 32 25 C33 24 32 22 30 22 C30 19 28 17 25 17 C25 15 26 12 25 8 C23 4 20 5 21 10 C21 12 20 14 19 15 Z" fill="rgba(255, 255, 255, 0.45)"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Drifting Ethereal Asian Clouds -->
+        <div class="midautumn-cloud cloud-1">
+            <svg viewBox="0 0 200 60" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10 40 Q30 10 70 30 Q110 5 150 25 Q180 15 195 40 Q160 55 120 45 Q70 60 10 40 Z" fill="url(#cloudGrad1)"/>
+                <defs>
+                    <linearGradient id="cloudGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ffb703" stop-opacity="0"/>
+                        <stop offset="50%" stop-color="#ff758f" stop-opacity="0.35"/>
+                        <stop offset="100%" stop-color="#ffb703" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+        <div class="midautumn-cloud cloud-2">
+            <svg viewBox="0 0 260 70" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 50 Q45 15 100 35 Q150 10 200 30 Q240 20 255 50 Q210 65 160 55 Q90 75 15 50 Z" fill="url(#cloudGrad2)"/>
+                <defs>
+                    <linearGradient id="cloudGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#ff758f" stop-opacity="0"/>
+                        <stop offset="50%" stop-color="#ffb703" stop-opacity="0.28"/>
+                        <stop offset="100%" stop-color="#7209b7" stop-opacity="0"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
+
+        <!-- Floating Sky Lanterns Container -->
+        <div id="sky-lanterns-container"></div>
+
+        <!-- Falling Golden Osmanthus Petals Container -->
+        <div id="osmanthus-petals-container"></div>
+    </div>
+
+    <!-- Dangling Interactive Star Lantern in Corner -->
+    <div class="midautumn-lantern-corner" id="midautumn-lantern" title="Tết Trung Thu! 🏮 Bấm để lắc lồng đèn & thả đèn trời">
+        <div class="lantern-cord"></div>
+        <div class="lantern-star-body">
+            <svg viewBox="0 0 100 100" class="star-svg" xmlns="http://www.w3.org/2000/svg">
+                <!-- Traditional Star Lantern (Đèn Ông Sao) -->
+                <polygon points="50,5 64,36 98,36 71,57 81,91 50,70 19,91 29,57 2,36 36,36" class="star-frame"/>
+                <circle cx="50" cy="50" r="14" class="star-core"/>
+                <circle cx="50" cy="50" r="8" class="star-flame"/>
+            </svg>
+        </div>
+        <div class="lantern-tassel">
+            <div class="tassel-string"></div>
+            <div class="tassel-fringe"></div>
+        </div>
+    </div>
+
+    <!-- Modern Ethereal Light Atmosphere Effect -->
+    <div class="light-atmosphere" id="light-atmosphere" aria-hidden="true">
+        <!-- Luminous Aurora Mesh Orbs -->
+        <div class="light-aurora-orb aurora-orb-1"></div>
+        <div class="light-aurora-orb aurora-orb-2"></div>
+        <div class="light-aurora-orb aurora-orb-3"></div>
+
+        <!-- Prismatic Sunbeam Light Ray -->
+        <div class="sunbeam-ray"></div>
+
+        <!-- Floating Solar Dust / Crystal Motes Container -->
+        <div id="solar-dust-container"></div>
+    </div>
+
+    <!-- Dangling Interactive Solar Crystal Prism in Corner -->
+    <div class="light-prism-corner" id="light-prism-widget" title="Ánh Sáng Tinh Khôi! ☀️ Bấm để xoay lăng kính & bung tỏa quang phổ cầu vồng">
+        <div class="prism-cord"></div>
+        <div class="crystal-prism-container">
+            <div class="crystal-prism-body">
+                <div class="prism-face face-front"></div>
+                <div class="prism-face face-back"></div>
+                <div class="prism-face face-left"></div>
+                <div class="prism-face face-right"></div>
+                <div class="prism-glow-core"></div>
+            </div>
+            <div class="prism-rainbow-flare"></div>
+        </div>
+        <div class="prism-tassel">
+            <div class="prism-tassel-bead"></div>
+            <div class="prism-tassel-spark"></div>
+        </div>
+    </div>
+
     <!-- Modern Loading Screen -->
     <div id="loading-screen" class="loading-screen">
         <div class="loading-content">
@@ -244,7 +347,7 @@
                     </a></li>
             </ul>
             <div class="nav-controls">
-                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme: Standard, Purple Meteor, Modern Halloween, or Modern Christmas" title="Chuyển theme: Chuẩn (🌙) / Tím Sao Băng (☄️) / Halloween (👻) / Giáng Sinh (❄️)">
+                <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle Theme: Standard, Purple Meteor, Halloween, Christmas, Mid-Autumn, or Modern Light" title="Chuyển theme: Chuẩn (🌙) / Tím Sao Băng (☄️) / Halloween (👻) / Giáng Sinh (❄️) / Trung Thu (🌕) / Light Mode (☀️)">
                     <i class="fas fa-moon"></i>
                     <div class="toggle-ripple"></div>
                 </button>

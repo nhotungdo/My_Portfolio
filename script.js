@@ -332,22 +332,41 @@ function initThreeJS() {
     // Dynamic Theme Color Updater for Three.js Particles
     function updateParticlesTheme(theme) {
         let c1, c2, c3;
-        if (theme === 'theme-christmas') {
-            c1 = new THREE.Color('#ffffff'); // Pure Snow White
-            c2 = new THREE.Color('#70d6ff'); // Glacial Ice Cyan
-            c3 = new THREE.Color('#ffd166'); // Champagne Gold Starlight
-        } else if (theme === 'theme-halloween') {
-            c1 = new THREE.Color('#ff6a00'); // Neon Jack-O'-Lantern
-            c2 = new THREE.Color('#00ff87'); // Toxic Green
-            c3 = new THREE.Color('#9933ff'); // Violet Ghost
-        } else if (theme === 'theme-purple') {
-            c1 = new THREE.Color('#e94560'); // Crimson Neon
-            c2 = new THREE.Color('#533483'); // Deep Violet
-            c3 = new THREE.Color('#ffffff'); // Starlight White
+        if (theme === 'theme-light') {
+            c1 = new THREE.Color('#2563eb'); // Electric Azure Blue
+            c2 = new THREE.Color('#6366f1'); // Vibrant Indigo Iris
+            c3 = new THREE.Color('#0ea5e9'); // Luminous Sky Cyan
+            particlesMaterial.blending = THREE.NormalBlending;
+            particlesMaterial.opacity = 0.65;
+            particlesMaterial.size = 0.055;
+            particlesMaterial.needsUpdate = true;
         } else {
-            c1 = new THREE.Color('#4b0082'); // Deep Purple
-            c2 = new THREE.Color('#a100a1'); // Bright Orchid
-            c3 = new THREE.Color('#ffffff'); // Pure White
+            particlesMaterial.blending = THREE.AdditiveBlending;
+            particlesMaterial.opacity = 0.8;
+            particlesMaterial.size = 0.05;
+            particlesMaterial.needsUpdate = true;
+
+            if (theme === 'theme-midautumn') {
+                c1 = new THREE.Color('#ffb703'); // Golden Harvest Moon
+                c2 = new THREE.Color('#ff3366'); // Lotus Ruby Crimson
+                c3 = new THREE.Color('#fffdf5'); // Pale Moon Starlight White
+            } else if (theme === 'theme-christmas') {
+                c1 = new THREE.Color('#ffffff'); // Pure Snow White
+                c2 = new THREE.Color('#70d6ff'); // Glacial Ice Cyan
+                c3 = new THREE.Color('#ffd166'); // Champagne Gold Starlight
+            } else if (theme === 'theme-halloween') {
+                c1 = new THREE.Color('#ff6a00'); // Neon Jack-O'-Lantern
+                c2 = new THREE.Color('#00ff87'); // Toxic Green
+                c3 = new THREE.Color('#9933ff'); // Violet Ghost
+            } else if (theme === 'theme-purple') {
+                c1 = new THREE.Color('#e94560'); // Crimson Neon
+                c2 = new THREE.Color('#533483'); // Deep Violet
+                c3 = new THREE.Color('#ffffff'); // Starlight White
+            } else {
+                c1 = new THREE.Color('#4b0082'); // Deep Purple
+                c2 = new THREE.Color('#a100a1'); // Bright Orchid
+                c3 = new THREE.Color('#ffffff'); // Pure White
+            }
         }
 
         const colors = particlesGeometry.attributes.color.array;
@@ -819,12 +838,14 @@ function showSuccessMessage(message) {
     }, 3000);
 }
 
-// Multi-Theme System (Standard, Cyber Purple Meteor, Modern Halloween, Modern Christmas)
+// Multi-Theme System (Standard, Cyber Purple Meteor, Modern Halloween, Modern Christmas, Mid-Autumn, Modern Light)
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     const body = document.body;
 
     function getCurrentTheme() {
+        if (body.classList.contains('theme-light')) return 'theme-light';
+        if (body.classList.contains('theme-midautumn')) return 'theme-midautumn';
         if (body.classList.contains('theme-christmas')) return 'theme-christmas';
         if (body.classList.contains('theme-halloween')) return 'theme-halloween';
         if (body.classList.contains('theme-purple')) return 'theme-purple';
@@ -832,7 +853,7 @@ function initThemeToggle() {
     }
 
     function applyTheme(theme) {
-        body.classList.remove('theme-purple', 'theme-halloween', 'theme-christmas');
+        body.classList.remove('theme-purple', 'theme-halloween', 'theme-christmas', 'theme-midautumn', 'theme-light');
         if (theme) {
             body.classList.add(theme);
         }
@@ -841,6 +862,8 @@ function initThemeToggle() {
         toggleMeteorShower(theme);
         toggleHalloweenAtmosphere(theme);
         toggleChristmasAtmosphere(theme);
+        toggleMidAutumnAtmosphere(theme);
+        toggleLightAtmosphere(theme);
         if (window.updateThreeParticlesTheme) {
             window.updateThreeParticlesTheme(theme);
         }
@@ -861,6 +884,10 @@ function initThemeToggle() {
                 newTheme = 'theme-halloween';
             } else if (currentTheme === 'theme-halloween') {
                 newTheme = 'theme-christmas';
+            } else if (currentTheme === 'theme-christmas') {
+                newTheme = 'theme-midautumn';
+            } else if (currentTheme === 'theme-midautumn') {
+                newTheme = 'theme-light';
             } else {
                 newTheme = '';
             }
@@ -871,6 +898,8 @@ function initThemeToggle() {
     // Init interactive easter eggs
     initHalloweenSpider();
     initChristmasBauble();
+    initMidAutumnLantern();
+    initLightPrism();
 }
 
 // Update theme icon
@@ -879,10 +908,20 @@ function updateThemeIcon(theme) {
     const toggleBtn = document.getElementById('theme-toggle');
     if (!icon) return;
 
-    if (theme === 'theme-christmas') {
+    if (theme === 'theme-light') {
+        icon.className = 'fas fa-sun';
+        if (toggleBtn) {
+            toggleBtn.setAttribute('title', 'Theme: Ánh Sáng Tinh Khôi ☀️ (Bấm để chuyển về Mặc định)');
+        }
+    } else if (theme === 'theme-midautumn') {
+        icon.className = 'fas fa-lightbulb';
+        if (toggleBtn) {
+            toggleBtn.setAttribute('title', 'Theme: Tết Trung Thu 🌕 (Bấm để chuyển sang Light Mode)');
+        }
+    } else if (theme === 'theme-christmas') {
         icon.className = 'fas fa-snowflake';
         if (toggleBtn) {
-            toggleBtn.setAttribute('title', 'Theme: Giáng Sinh Hiện Đại ❄️ (Bấm để chuyển về Mặc định)');
+            toggleBtn.setAttribute('title', 'Theme: Giáng Sinh Hiện Đại ❄️ (Bấm để chuyển sang Trung Thu)');
         }
     } else if (theme === 'theme-halloween') {
         icon.className = 'fas fa-ghost';
@@ -1107,6 +1146,315 @@ function createStardustBurst(targetEl) {
             star.remove();
         }, 700);
     }
+}
+
+// Toggle Mid-Autumn atmosphere effects
+function toggleMidAutumnAtmosphere(theme) {
+    const atmosphere = document.getElementById('midautumn-atmosphere');
+    const lantern = document.getElementById('midautumn-lantern');
+    const isMidAutumn = theme === 'theme-midautumn';
+
+    if (atmosphere) {
+        if (isMidAutumn) {
+            atmosphere.style.display = 'block';
+            addSkyLanterns();
+            addOsmanthusPetals();
+        } else {
+            atmosphere.style.display = 'none';
+        }
+    }
+
+    if (lantern) {
+        lantern.style.display = isMidAutumn ? 'block' : 'none';
+    }
+}
+
+// Add dynamic floating sky lanterns (Thiên Đăng / Hoa Đăng)
+function addSkyLanterns() {
+    const container = document.getElementById('sky-lanterns-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+    const lanternCount = 18;
+
+    for (let i = 0; i < lanternCount; i++) {
+        const lantern = document.createElement('div');
+        lantern.className = 'sky-lantern';
+
+        const scale = (0.55 + Math.random() * 0.7);
+        const left = (Math.random() * 96) + '%';
+        const duration = (12 + Math.random() * 14) + 's';
+        const delay = (Math.random() * 16) + 's';
+
+        lantern.innerHTML = `
+            <div class="lantern-balloon">
+                <div class="lantern-flame-core"></div>
+            </div>
+            <div class="lantern-glow-trail"></div>
+        `;
+
+        lantern.style.transform = `scale(${scale})`;
+        lantern.style.left = left;
+        lantern.style.animationDuration = duration;
+        lantern.style.animationDelay = delay;
+
+        container.appendChild(lantern);
+    }
+}
+
+// Add dynamic falling golden Osmanthus petals (Cánh Hoa Quế Rơi)
+function addOsmanthusPetals() {
+    const container = document.getElementById('osmanthus-petals-container');
+    if (!container) return;
+
+    container.innerHTML = '';
+    const petalCount = 28;
+
+    for (let i = 0; i < petalCount; i++) {
+        const petal = document.createElement('div');
+        petal.className = 'osmanthus-petal';
+
+        const left = (Math.random() * 98) + '%';
+        const duration = (8 + Math.random() * 10) + 's';
+        const delay = (Math.random() * 12) + 's';
+
+        petal.style.left = left;
+        petal.style.animationDuration = duration;
+        petal.style.animationDelay = delay;
+        petal.style.opacity = (0.4 + Math.random() * 0.6);
+
+        container.appendChild(petal);
+    }
+}
+
+// Interactive Star Lantern Easter Egg
+function initMidAutumnLantern() {
+    const lantern = document.getElementById('midautumn-lantern');
+    if (!lantern) return;
+
+    lantern.addEventListener('click', () => {
+        const starBody = lantern.querySelector('.lantern-star-body');
+        if (starBody) {
+            starBody.style.transform = 'scale(1.5) rotate(360deg)';
+            createLanternSparkleBurst(lantern);
+            launchBonusLanterns();
+            setTimeout(() => {
+                starBody.style.transform = '';
+            }, 600);
+        }
+    });
+}
+
+// Launch bonus sky lanterns on click
+function launchBonusLanterns() {
+    const container = document.getElementById('sky-lanterns-container');
+    if (!container) return;
+
+    for (let i = 0; i < 3; i++) {
+        const lantern = document.createElement('div');
+        lantern.className = 'sky-lantern';
+        lantern.innerHTML = `
+            <div class="lantern-balloon" style="box-shadow: 0 0 25px #ffb703, 0 0 40px #ff3366;">
+                <div class="lantern-flame-core"></div>
+            </div>
+            <div class="lantern-glow-trail"></div>
+        `;
+        lantern.style.left = (75 + i * 7) + '%';
+        lantern.style.animationDuration = '8s';
+        lantern.style.animationDelay = (i * 0.4) + 's';
+        container.appendChild(lantern);
+
+        setTimeout(() => lantern.remove(), 9000);
+    }
+}
+
+// Lantern Sparkle Burst Particle Effect
+function createLanternSparkleBurst(targetEl) {
+    const count = 16;
+
+    for (let i = 0; i < count; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'lantern-sparkle-burst';
+        const angle = (i / count) * 2 * Math.PI;
+        const distance = 40 + Math.random() * 40;
+        const dx = Math.cos(angle) * distance + 'px';
+        const dy = Math.sin(angle) * distance + 'px';
+
+        sparkle.style.setProperty('--dx', dx);
+        sparkle.style.setProperty('--dy', dy);
+        targetEl.appendChild(sparkle);
+
+        setTimeout(() => {
+            sparkle.remove();
+        }, 750);
+    }
+}
+
+// Modern Light Atmosphere Toggle
+function toggleLightAtmosphere(theme) {
+    const atmosphere = document.getElementById('light-atmosphere');
+    const prism = document.getElementById('light-prism-widget');
+    const isLight = theme === 'theme-light';
+
+    if (atmosphere) {
+        if (isLight) {
+            atmosphere.style.display = 'block';
+            addSolarDust();
+        } else {
+            atmosphere.style.display = 'none';
+            const dustContainer = document.getElementById('solar-dust-container');
+            if (dustContainer) dustContainer.innerHTML = '';
+        }
+    }
+
+    if (prism) {
+        prism.style.display = isLight ? 'flex' : 'none';
+    }
+}
+
+// Generate floating solar motes / crystal dust
+function addSolarDust() {
+    const container = document.getElementById('solar-dust-container');
+    if (!container || container.children.length > 0) return;
+
+    const count = 32;
+    for (let i = 0; i < count; i++) {
+        const mote = document.createElement('div');
+        mote.className = 'solar-mote';
+        const size = Math.random() * 5 + 3;
+        mote.style.width = size + 'px';
+        mote.style.height = size + 'px';
+        mote.style.left = Math.random() * 100 + '%';
+        const duration = Math.random() * 8 + 10;
+        mote.style.animationDuration = duration + 's';
+        mote.style.animationDelay = (Math.random() * 10) + 's';
+        mote.style.animationIterationCount = 'infinite';
+        const driftX = (Math.random() - 0.5) * 80 + 'px';
+        mote.style.setProperty('--drift-x', driftX);
+        container.appendChild(mote);
+    }
+}
+
+// Interactive Solar Crystal Prism Easter Egg
+function initLightPrism() {
+    const prism = document.getElementById('light-prism-widget');
+    if (!prism) return;
+
+    let isPrismBursting = false;
+
+    prism.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (isPrismBursting) return;
+        isPrismBursting = true;
+
+        // Easter Egg: 3D rapid spin & sparkle burst
+        const prismBody = prism.querySelector('.crystal-prism-body');
+        if (prismBody) {
+            prismBody.style.animationDuration = '0.6s';
+            setTimeout(() => {
+                prismBody.style.animationDuration = '10s';
+            }, 2500);
+        }
+
+        // Create rainbow sparkling particles burst
+        createPrismSpectrumBurst(prism);
+
+        // Optional: Delicate crystal chime via Web Audio API
+        playCrystalChimeSound();
+
+        // Bonus: Launch swift sunbeam flash across Hero
+        launchSunbeamFlash();
+
+        setTimeout(() => {
+            isPrismBursting = false;
+        }, 1200);
+    });
+}
+
+// Create Sparkling Rainbow Particle Burst
+function createPrismSpectrumBurst(targetEl) {
+    const count = 24;
+    const colors = ['#38bdf8', '#818cf8', '#f472b6', '#fbbf24', '#34d399', '#ffffff'];
+
+    for (let i = 0; i < count; i++) {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'prism-sparkle-burst';
+        const color = colors[i % colors.length];
+        sparkle.style.background = color;
+        sparkle.style.boxShadow = `0 0 12px ${color}, 0 0 22px rgba(255,255,255,0.9)`;
+
+        const angle = (i / count) * 2 * Math.PI;
+        const distance = 45 + Math.random() * 60;
+        const dx = Math.cos(angle) * distance + 'px';
+        const dy = Math.sin(angle) * distance + 'px';
+
+        sparkle.style.setProperty('--dx', dx);
+        sparkle.style.setProperty('--dy', dy);
+        targetEl.appendChild(sparkle);
+
+        setTimeout(() => {
+            sparkle.remove();
+        }, 850);
+    }
+}
+
+// Synthesize crystal chime sound without external files
+function playCrystalChimeSound() {
+    try {
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        if (!AudioContext) return;
+        const ctx = new AudioContext();
+        if (ctx.state === 'suspended') {
+            ctx.resume();
+        }
+
+        const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6 (Crystal chime chord)
+        notes.forEach((freq, idx) => {
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime + idx * 0.08);
+
+            gain.gain.setValueAtTime(0.12, ctx.currentTime + idx * 0.08);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + idx * 0.08 + 0.8);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start(ctx.currentTime + idx * 0.08);
+            osc.stop(ctx.currentTime + idx * 0.08 + 0.85);
+        });
+    } catch (e) {
+        // Audio not allowed or unsupported, graceful fallback
+    }
+}
+
+// Sunbeam flash across hero
+function launchSunbeamFlash() {
+    const hero = document.getElementById('hero');
+    if (!hero) return;
+
+    const flash = document.createElement('div');
+    flash.style.position = 'absolute';
+    flash.style.top = '0';
+    flash.style.left = '0';
+    flash.style.width = '100%';
+    flash.style.height = '100%';
+    flash.style.pointerEvents = 'none';
+    flash.style.background = 'radial-gradient(circle at 75% 20%, rgba(255, 255, 255, 0.45) 0%, rgba(56, 189, 248, 0.15) 40%, transparent 70%)';
+    flash.style.opacity = '0';
+    flash.style.transition = 'opacity 0.4s ease';
+    flash.style.zIndex = '5';
+    hero.appendChild(flash);
+
+    requestAnimationFrame(() => {
+        flash.style.opacity = '1';
+        setTimeout(() => {
+            flash.style.opacity = '0';
+            setTimeout(() => flash.remove(), 500);
+        }, 600);
+    });
 }
 
 // Mobile Menu
